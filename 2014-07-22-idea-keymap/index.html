@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Idea,Keymap,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="实用快捷键Ctrl+/ 或 Ctrl+Shift+/ 注释（// 或者/*…*/ ）  Ctrl+D 复制行  Ctrl+X 删除行  快速修复 alt+enter (modify/cast)  代码提示 alt+/  ctr+G 定位某一行  Shift+F6 重构-重命名  Ctrl+R 替换文本  Ctrl+F 查找文本  Ctrl+E 最近打开的文件  Ctrl+J 自动代码  组织导入">
+<meta name="keywords" content="Idea,Keymap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEA 快捷键和设置">
+<meta property="og:url" content="https://note.pin.bo/2014-07-22-idea-keymap/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="实用快捷键Ctrl+/ 或 Ctrl+Shift+/ 注释（// 或者/*…*/ ）  Ctrl+D 复制行  Ctrl+X 删除行  快速修复 alt+enter (modify/cast)  代码提示 alt+/  ctr+G 定位某一行  Shift+F6 重构-重命名  Ctrl+R 替换文本  Ctrl+F 查找文本  Ctrl+E 最近打开的文件  Ctrl+J 自动代码  组织导入">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-02-20T04:39:50.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IntelliJ IDEA 快捷键和设置">
+<meta name="twitter:description" content="实用快捷键Ctrl+/ 或 Ctrl+Shift+/ 注释（// 或者/*…*/ ）  Ctrl+D 复制行  Ctrl+X 删除行  快速修复 alt+enter (modify/cast)  代码提示 alt+/  ctr+G 定位某一行  Shift+F6 重构-重命名  Ctrl+R 替换文本  Ctrl+F 查找文本  Ctrl+E 最近打开的文件  Ctrl+J 自动代码  组织导入">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2014-07-22-idea-keymap/">
+
+
+
+
+
+  <title>IntelliJ IDEA 快捷键和设置 | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2014-07-22-idea-keymap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">IntelliJ IDEA 快捷键和设置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-22T02:08:00+08:00">
+                2014-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="实用快捷键"><a href="#实用快捷键" class="headerlink" title="实用快捷键"></a>实用快捷键</h3><pre><code>Ctrl+/ 或 Ctrl+Shift+/ 注释（// 或者/*…*/ ）
+
+Ctrl+D 复制行
+
+Ctrl+X 删除行
+
+快速修复 alt+enter (modify/cast)
+
+代码提示 alt+/
+
+ctr+G 定位某一行
+
+Shift+F6 重构-重命名
+
+Ctrl+R 替换文本
+
+Ctrl+F 查找文本
+
+Ctrl+E 最近打开的文件
+
+Ctrl+J 自动代码
+
+组织导入 ctr+alt+O
+
+格式化代码 ctr+alt+L
+
+大小写转化 ctr+shift+U
+</code></pre><hr>
+<a id="more"></a>
+<h3 id="常用快捷键列表"><a href="#常用快捷键列表" class="headerlink" title="常用快捷键列表"></a>常用快捷键列表</h3><pre><code>Alt+回车 导入包,自动修正
+
+Ctrl+N   查找类
+
+Ctrl+Shift+N 查找文件
+
+Ctrl+Alt+L  格式化代码
+
+Ctrl+Alt+O 优化导入的类和包
+
+Alt+Insert 生成代码(如get,set方法,构造函数等)
+
+Ctrl+E或者Alt+Shift+C  最近更改的代码
+
+Ctrl+R 替换文本
+
+Ctrl+F 查找文本
+
+Ctrl+Shift+Space 自动补全代码
+
+Ctrl+空格 代码提示
+
+Ctrl+Alt+Space 类名或接口名提示
+
+Ctrl+P 方法参数提示
+
+Ctrl+Shift+Alt+N 查找类中的方法或变量
+
+Alt+Shift+C 对比最近修改的代码
+
+
+
+Shift+F6  重构-重命名
+
+Ctrl+Shift+先上键
+
+Ctrl+X 删除行
+
+Ctrl+D 复制行
+
+Ctrl+/ 或 Ctrl+Shift+/  注释（// 或者/*…*/ ）
+
+Ctrl+J  自动代码
+
+Ctrl+E 最近打开的文件
+
+Ctrl+H 显示类结构图
+
+Ctrl+Q 显示注释文档
+
+Alt+F1 查找代码所在位置
+
+Alt+1 快速打开或隐藏工程面板
+
+Ctrl+Alt+ left/right 返回至上次浏览的位置
+
+Alt+ left/right 切换代码视图
+
+Alt+ Up/Down 在方法间快速移动定位
+
+Ctrl+Shift+Up/Down 代码向上/下移动。
+
+F2 或Shift+F2 高亮错误或警告快速定位
+
+
+
+代码标签输入完成后，按Tab，生成代码。
+
+选中文本，按Ctrl+Shift+F7 ，高亮显示所有该文本，按Esc高亮消失。
+
+Ctrl+W 选中代码，连续按会有其他效果
+
+选中文本，按Alt+F3 ，逐个往下查找相同文本，并高亮显示。
+
+Ctrl+Up/Down 光标跳转到第一行或最后一行下
+
+Ctrl+B 快速打开光标处的类或方法
+</code></pre><hr>
+<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><ol>
+<li><p>IDEA内存优化</p>
+<pre><code>因机器本身的配置而配置：
+
+\IntelliJ IDEA 8\bin\idea.exe.vmoptions
+
+—————————————–
+
+-Xms64m
+
+-Xmx256m
+
+-XX:MaxPermSize=92m
+
+-ea
+
+-server
+
+-Dsun.awt.keepWorkingSetOnMinimize=true
+</code></pre></li>
+<li><p>查询快捷键</p>
+<pre><code>CTRL+N   查找类
+
+CTRL+SHIFT+N  查找文件
+
+CTRL+SHIFT+ALT+N 查找类中的方法或变量
+
+CIRL+B   找变量的来源
+
+CTRL+ALT+B  找所有的子类
+
+CTRL+SHIFT+B  找变量的类
+
+CTRL+G   定位行
+
+CTRL+F   在当前窗口查找文本
+
+CTRL+SHIFT+F  在指定窗口查找文本
+
+CTRL+R   在 当前窗口替换文本
+
+CTRL+SHIFT+R  在指定窗口替换文本
+
+ALT+SHIFT+C  查找修改的文件
+
+CTRL+E   最近打开的文件
+
+F3   向下查找关键字出现位置
+
+SHIFT+F3  向上一个关键字出现位置
+
+F4   查找变量来源
+
+CTRL+ALT+F7  选中的字符查找工程出现的地方
+
+CTRL+SHIFT+O  弹出显示查找内容
+</code></pre></li>
+<li><p>自动代码</p>
+<pre><code>ALT+回车  导入包,自动修正
+
+CTRL+ALT+L  格式化代码
+
+CTRL+ALT+I  自动缩进
+
+CTRL+ALT+O  优化导入的类和包
+
+ALT+INSERT  生成代码(如GET,SET方法,构造函数等)
+
+CTRL+E 最近更改的代码
+
+CTRL+SHIFT+SPACE 自动补全代码
+
+CTRL+空格  代码提示
+
+CTRL+ALT+SPACE  类名或接口名提示
+
+CTRL+P   方法参数提示
+
+CTRL+J   自动代码
+
+CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里
+</code></pre></li>
+<li><p>复制快捷方式</p>
+<pre><code>CTRL+D   复制行
+
+CTRL+X   剪切,删除行
+</code></pre></li>
+<li><p>其他快捷方式</p>
+<pre><code>CIRL+U   大小写切换
+
+CTRL+Z   倒退
+
+CTRL+SHIFT+Z  向前
+
+CTRL+ALT+F12  资源管理器打开文件夹
+
+ALT+F1   查找文件所在目录位置
+
+SHIFT+ALT+INSERT 竖编辑模式
+
+CTRL+/   注释//
+
+CTRL+SHIFT+/  注释/*…*/
+
+CTRL+W   选中代码，连续按会有其他效果
+
+CTRL+B   快速打开光标处的类或方法
+
+ALT+ ←/→  切换代码视图
+
+CTRL+ALT ←/→  返回上次编辑的位置
+
+ALT+ ↑/↓  在方法间快速移动定位
+
+SHIFT+F6  重构-重命名
+
+CTRL+H   显示类结构图
+
+CTRL+Q   显示注释文档
+
+ALT+1   快速打开或隐藏工程面板
+
+CTRL+SHIFT+UP/DOWN 代码向上/下移动。
+
+CTRL+UP/DOWN  光标跳转到第一行或最后一行下
+
+ESC   光标返回编辑框
+
+SHIFT+ESC  光标返回编辑框,关闭无用的窗口
+
+F1   帮助千万别按,很卡!
+
+CTRL+F4   非常重要下班都用
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Idea/" rel="tag"># Idea</a>
+          
+            <a href="/tags/Keymap/" rel="tag"># Keymap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014-07-01-markdown-syntax-doc/" rel="next" title="Markdown中文文档">
+                <i class="fa fa-chevron-left"></i> Markdown中文文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014-08-08-install-wine-qqintl/" rel="prev" title="Ubuntu安装QQ国际版wine-qqintl">
+                Ubuntu安装QQ国际版wine-qqintl <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实用快捷键"><span class="nav-number">1.</span> <span class="nav-text">实用快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用快捷键列表"><span class="nav-number">2.</span> <span class="nav-text">常用快捷键列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用设置"><span class="nav-number">3.</span> <span class="nav-text">常用设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

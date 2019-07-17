@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AWS,Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="aws的所有学习笔记  申请网上有教程，需信用卡 设置root和ec2-user的shh登录给root和ec2-user设置密码，并可以使用账号密码登录  根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）  主机：是服务器的Public DNS 端口：22  创建root的密码，输入如下命令：  1$ sudo passwd root  然后会提示你输入n">
+<meta name="keywords" content="AWS,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS学习笔记">
+<meta property="og:url" content="https://note.pin.bo/2017-05-20-aws-note/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="aws的所有学习笔记  申请网上有教程，需信用卡 设置root和ec2-user的shh登录给root和ec2-user设置密码，并可以使用账号密码登录  根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）  主机：是服务器的Public DNS 端口：22  创建root的密码，输入如下命令：  1$ sudo passwd root  然后会提示你输入n">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-26T06:30:54.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWS学习笔记">
+<meta name="twitter:description" content="aws的所有学习笔记  申请网上有教程，需信用卡 设置root和ec2-user的shh登录给root和ec2-user设置密码，并可以使用账号密码登录  根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）  主机：是服务器的Public DNS 端口：22  创建root的密码，输入如下命令：  1$ sudo passwd root  然后会提示你输入n">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2017-05-20-aws-note/">
+
+
+
+
+
+  <title>AWS学习笔记 | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2017-05-20-aws-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AWS学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T11:13:00+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>aws的所有学习笔记</p>
+</blockquote>
+<h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><p>网上有教程，需信用卡</p>
+<h3 id="设置root和ec2-user的shh登录"><a href="#设置root和ec2-user的shh登录" class="headerlink" title="设置root和ec2-user的shh登录"></a>设置root和ec2-user的shh登录</h3><p>给root和ec2-user设置密码，并可以使用账号密码登录</p>
+<ol>
+<li><p>根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）</p>
+<p> 主机：是服务器的Public DNS<br> 端口：22</p>
+</li>
+<li><p>创建root的密码，输入如下命令：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo passwd root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后会提示你输入new password。输入一个你要设置的root的密码，需要你再输入一遍进行验证。</p>
+</li>
+<li><p>接下来，切换到root身份，输入如下命令：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su root</span><br></pre></td></tr></table></figure>
+ <a id="more"></a>
+</li>
+<li><p>使用root身份编辑亚马逊云主机的ssh登录方式，找到 PasswordAuthentication no，把no改成yes。输入：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来，要重新启动下sshd，如下命令：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo /sbin/service sshd restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后再切换到root身份</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再为原来的”ec2-user”添加登录密码。如下命令：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> passwd ec2-user</span><br></pre></td></tr></table></figure>
+<p> 按提示，两次输入密码。</p>
+</li>
+<li><p>如果需要root用户登录，需修改sshd配置文件</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p> PermitRootLogin这行改为</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+<p> PasswordAuthentication no改为</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+<p> UsePAM yes改为</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UsePAM no</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启AWS VPS，就可以使用root正常登陆了</p>
+</li>
+</ol>
+<h3 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h3><h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>查看版本当前操作系统发行版信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat /etc/issue</span><br><span class="line">Amazon Linux AMI release 2017.03</span><br><span class="line">Kernel \r on an \m</span><br></pre></td></tr></table></figure>
+<p>查看当前操作系统版本内核信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> uname -a</span><br><span class="line">Linux ip-255-255-255-255 4.9.20-11.31.amzn1.x86_64 #1 SMP Thu Apr 13 01:53:57 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+<p>更新现有软件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo yum update</span><br></pre></td></tr></table></figure>
+<p>安装lrzsz</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yum -y install lrzsz</span><br></pre></td></tr></table></figure>
+<p>如果安装不成功</p>
+<p>安装gcc</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo yum install gcc build-essential</span><br></pre></td></tr></table></figure>
+<p>去页面找到下载地址<br><a href="https://ohse.de/uwe/software/lrzsz.html" target="_blank" rel="noopener">https://ohse.de/uwe/software/lrzsz.html</a><br><a href="https://ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz" target="_blank" rel="noopener">https://ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</a></p>
+<p>用命令下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> wget https://ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br></pre></td></tr></table></figure>
+<p>解压缩<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tar -xzvf lrzsz-0.12.20.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd lrzsz-0.12.20</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> ./configure --prefix=/usr/local/lrzsz</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo make </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sudo make install </span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> cd /usr/bin</span><br><span class="line"><span class="meta">$</span> ln -s /usr/local/lrzsz/bin/lrz rz</span><br><span class="line"><span class="meta">$</span> ln -s /usr/local/lrzsz/bin/lsz sz</span><br></pre></td></tr></table></figure>
+<p>测试 rz  sz</p>
+<h4 id="更换JDK"><a href="#更换JDK" class="headerlink" title="更换JDK"></a>更换JDK</h4><p>查看jdk版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> java -version</span><br><span class="line">java version "1.7.0_131"</span><br><span class="line">OpenJDK Runtime Environment (amzn-2.6.9.0.71.amzn1-x86_64 u131-b00)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 24.131-b00, mixed mode)</span><br></pre></td></tr></table></figure>
+<p>查询是否被安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> rpm -qa |grep java</span><br><span class="line">java-1.7.0-openjdk-1.7.0.131-2.6.9.0.71.amzn1.x86_64</span><br><span class="line">javapackages-tools-0.9.1-1.5.amzn1.noarch</span><br><span class="line">tzdata-java-2017b-1.69.amzn1.noarch</span><br></pre></td></tr></table></figure>
+<p>卸载JDK</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> rpm -e --nodeps java-1.7.0-openjdk-1.7.0.131-2.6.9.0.71.amzn1.x86_64</span><br><span class="line"><span class="meta">$</span> rpm -e --nodeps tzdata-java-2017b-1.69.amzn1.noarch</span><br></pre></td></tr></table></figure>
+<p>查询是否被安装(是否卸载成功)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> rpm -qa |grep java</span><br><span class="line">javapackages-tools-0.9.1-1.5.amzn1.noarch</span><br></pre></td></tr></table></figure>
+<p>去官网找到下载链接，然后下载jdk 安装，JDK默认会安装到/usr/java/目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm</span><br><span class="line"><span class="meta">$</span> rpm -ivh jdk-8u131-linux-x64.rpm</span><br></pre></td></tr></table></figure>
+<p>配置JAVA_HOME,CLASSPATH,PATH环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vi /etc/profile</span><br></pre></td></tr></table></figure>
+<p>添加下面几行后保存退出</p>
+<pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_131
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/lib
+</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> source /etc/profile</span><br></pre></td></tr></table></figure>
+<p>查看安装成功，如下显示安装成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> java -version</span><br><span class="line">java version "1.8.0_131"</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_131-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)</span><br></pre></td></tr></table></figure>
+<h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum instal nginx</span><br></pre></td></tr></table></figure>
+<p>启动和设置开机启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /etc/init.d/nginx start</span><br><span class="line">Starting nginx:                                            [  OK  ]</span><br><span class="line">$ chkconfig nginx on</span><br></pre></td></tr></table></figure>
+<h4 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h4><p>yum install mysql mysql-server</p>
+<p>在服务器上，编辑/etc/my.cnf中允许所有连接<br>bind-address          = 0.0.0.0<br>user=mysql</p>
+<p>/usr/bin/mysqld_safe start –user=mysql</p>
+<p>service mysqld start</p>
+<p>chkconfig –levels 345 mysqld on</p>
+<p>service mysql start<br>service mysql stop<br>service mysql restart<br>其实如果你对service比较熟悉的话，就会知道运行上面命令，其实是service命令去找/etc/init.d下的相关的mysql脚本去执行启动、关闭动作。</p>
+<p>直接回车<br>mysql（mysql -h localhost -u root -p）</p>
+<p>远程访问mysql速度很慢的解决方法<br>修改/etc/my.cnf或my.ini<br>[mysqld]下添加<br>skip-name-resolve<br>skip-grant-tables</p>
+<p><a href="http://www.cnblogs.com/Darlin356230410/p/4500165.html" target="_blank" rel="noopener">http://www.cnblogs.com/Darlin356230410/p/4500165.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AWS/" rel="tag"># AWS</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-02-20-chinese-domain-name-binding-pages/" rel="next" title="中文域名解析和绑定Pages服务">
+                <i class="fa fa-chevron-left"></i> 中文域名解析和绑定Pages服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#申请"><span class="nav-number">1.</span> <span class="nav-text">申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置root和ec2-user的shh登录"><span class="nav-number">2.</span> <span class="nav-text">设置root和ec2-user的shh登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装常用软件"><span class="nav-number">3.</span> <span class="nav-text">安装常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备"><span class="nav-number">3.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更换JDK"><span class="nav-number">3.2.</span> <span class="nav-text">更换JDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装nginx"><span class="nav-number">3.3.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装mysql"><span class="nav-number">3.4.</span> <span class="nav-text">安装mysql</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

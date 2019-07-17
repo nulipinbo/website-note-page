@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ubuntu,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="对于那些想要一个易于使用的界面的用户，Ubuntu是一个很好的Linux发行版，并且对于一个Linux新手也可以说是最好的Linux发行版。不过这产生了一些副作用，那就是，对于界面和外观，Canonical公司已经为用户做了很多设定，尤其是Unity桌面环境。   然而这些不是一成不变的。下面是一些关于怎样让你更加舒心地使用Ubuntu的技巧。看过上面的截图中我对Ubuntu的设定，你可以看到我">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu主题图标美化">
+<meta property="og:url" content="https://note.pin.bo/2014-09-20-ubuntu-theme-icon/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="对于那些想要一个易于使用的界面的用户，Ubuntu是一个很好的Linux发行版，并且对于一个Linux新手也可以说是最好的Linux发行版。不过这产生了一些副作用，那就是，对于界面和外观，Canonical公司已经为用户做了很多设定，尤其是Unity桌面环境。   然而这些不是一成不变的。下面是一些关于怎样让你更加舒心地使用Ubuntu的技巧。看过上面的截图中我对Ubuntu的设定，你可以看到我">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://note.pin.bo/images/post_images/2014-09-20-ubuntu-theme-icon-01.png">
+<meta property="og:updated_time" content="2017-02-20T04:39:19.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu主题图标美化">
+<meta name="twitter:description" content="对于那些想要一个易于使用的界面的用户，Ubuntu是一个很好的Linux发行版，并且对于一个Linux新手也可以说是最好的Linux发行版。不过这产生了一些副作用，那就是，对于界面和外观，Canonical公司已经为用户做了很多设定，尤其是Unity桌面环境。   然而这些不是一成不变的。下面是一些关于怎样让你更加舒心地使用Ubuntu的技巧。看过上面的截图中我对Ubuntu的设定，你可以看到我">
+<meta name="twitter:image" content="https://note.pin.bo/images/post_images/2014-09-20-ubuntu-theme-icon-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2014-09-20-ubuntu-theme-icon/">
+
+
+
+
+
+  <title>Ubuntu主题图标美化 | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2014-09-20-ubuntu-theme-icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu主题图标美化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-20T16:47:04+08:00">
+                2014-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>对于那些想要一个易于使用的界面的用户，Ubuntu是一个很好的Linux发行版，并且对于一个Linux新手也可以说是最好的Linux发行版。不过这产生了一些副作用，那就是，对于界面和外观，Canonical公司已经为用户做了很多设定，尤其是Unity桌面环境。</p>
+</blockquote>
+<blockquote>
+<p>然而这些不是一成不变的。下面是一些关于怎样让你更加舒心地使用Ubuntu的技巧。看过上面的截图中我对Ubuntu的设定，你可以看到我的的Unity桌面，相比于默认设定的桌面有何不同。</p>
+</blockquote>
+<p>首先来一张预览图,然后让我们分步来实现定制Ubuntu桌面。</p>
+<p><img src="/images/post_images/2014-09-20-ubuntu-theme-icon-01.png" alt="桌面预览图"></p>
+<a id="more"></a>
+<p>1. 安装Unity Tweak Tool</p>
+<p>在你能对Ubuntu外观做任何有效地修改之前，你不得不安装Unity Tweak Tool。这是一个Unity桌面环境下特殊设置管理软件，并且通过它你可以实现替换系统图标和主题。你可以从Ubuntu软件中心下载该软件，如果你更加偏爱terminal终端的话，你也可以使用下面的命令：</p>
+<pre><code>sudo apt-get install unity-tweak-tool
+</code></pre><p>如果你正在使用Gnome桌面环境，那么你可能需要尝试Gnome Tweak Tool这款软件。你也可以从Ubuntu软件中心和使用以下命令来安装该软件：</p>
+<pre><code>sudo apt-get install gnome-tweak-tool
+</code></pre><p>2. 安装GTK主题</p>
+<p>对于Ubuntu有很多定制的主题，这些主题可以影响应用和窗口的外观。我正在使用的主题是Numix GTK+。你可以在<a href="http://numixproject.org/" target="_blank" rel="noopener">http://numixproject.org/</a>找到关于Numix主题和图标的更多信息。你可以通过打开终端并输入以下命令来安装Numix主题：</p>
+<pre><code>sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update &amp;&amp; sudo apt-get install numix-gtk-theme
+</code></pre><p>为了使该主题生效，我们需要打开Unity Tweak Tool，选择“外观标题”下的“主题”选项，然后在“已有主题”一栏中选择该主题。只要相应的软件仓库名字一致，对于其他主题，你可以重复该过程来应用。你可以访问<a href="http://Gnome-Look.org" target="_blank" rel="noopener">http://Gnome-Look.org</a>获得更多的主题。另一个和Numix主题很相似的主题是Moka，你可以在<a href="http://mokaproject.com/" target="_blank" rel="noopener">http://mokaproject.com/</a>获得更多关于Moka主题的信息。</p>
+<p>3. 安装图标</p>
+<p>以上预览图中使用的图标是来自Numix主题的Numix圆形图标。你可以通过在终端输入以下命令来安装该图标集：</p>
+<pre><code>sudo apt-add-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-icon-theme-circle
+</code></pre><p>为了使该图标集生效，我们需要在Unity Tweak Tool中选择“图标”选项，然后选择该图标集。再一次声明，这个方法对于任何图标集是可行的。Moka也提供给你的桌面带来多彩的、一致性设计的图标集。</p>
+<p>到此为止,我的桌面就安装好了,我尽量使用原生的,但是不满意其图标太丑,当然你可以再进行深入的定制.</p>
+<p>4. 安装conky系统监视软件 如果你喜欢</p>
+<p>Conky是一个轻量级桌面系统监视软件。该软件本身是非常简单的，不过它是可定制的，这样一来它就可以显示很多的有用的信息。你可以通过在终端输入以下命令来安装Conky：</p>
+<pre><code>sudo apt-get install conky conky-all
+</code></pre><p>你将会需要curl这个软件，你可以通过以下这个命令来安装该软件：</p>
+<pre><code>sudo apt-get install curl
+</code></pre><p>我使用的conky主题是<a href="http://zagortenay333.deviantart.com/art/Conky-Harmattan-426662366" target="_blank" rel="noopener">Harmattan</a>，它可以以15种不同的样式来显示时间、天气、以及系统进程。要安装该主题，你可以从<a href="http://www.deviantart.com/art/Conky-Harmattan-426662366" target="_blank" rel="noopener">deviantART</a>下载zip文件，然后解压。将.conky-weather文件夹和位于主题文件夹的.conkyrc文件（你可能需要按Ctrl+H来显示这些隐藏文件）移动到你的home文件夹。Conky有很多的主题。尝试这些主题，你所需要做的就是用所要使用主题的.conkyrc文件替换在home文件夹的.conkyrc文件。</p>
+<p>5. 安装一些指示器程序 如果你喜欢</p>
+<p>有很多第三方的指示器程序，通过这些程序你可以监视你的桌面信息，例如天气、系统性能等。我所使用的指示器程序相当简单。因为天气和系统性能已经在conky中显示，所以我没有安装这些指示器。不过你可以在终端输入以下命令来安装他们：</p>
+<pre><code>sudo apt-get install indicator-weather
+sudo apt-get install indicator-multiload
+</code></pre><p>我所使用的两个指示器程序是大小写指示程序以及触摸板控制器，这是因为我的笔记本没有大小写指示灯和控制触摸板开关的热键。你可以通过以下命令来安装这两个软件：</p>
+<pre><code>sudo add-apt-repository ppa:tsbarnes/indicator-keylock
+sudo add-apt-repository ppa:atareao/atareao
+sudo apt-get update
+sudo apt-get install indicator-keylock
+sudo apt-get install touchpad-indicator
+</code></pre><p>你可能需要注销并重新登录来使用这些应用。</p>
+<p>6. 通过Compiz设置管理器深度定制你的桌面 如果你喜欢</p>
+<p>如果对于你来说Unity Tweak Tool不够强大，那么你可以尝试<a href="https://apps.ubuntu.com/cat/applications/compizconfig-settings-manager/" target="_blank" rel="noopener">Compiz</a>设置管理器.</p>
+<p><strong>警告:</strong> </p>
+<p>如果错误的设置被应用的话，Compiz设置管理器可能会损害到你的系统。所以使用时要格外小心。你可以看到Ubuntu系统中隐藏的各种设置。你可以在Ubuntu软件中心获取该软件或者终端输入以下命令来安装：</p>
+<pre><code>sudo apt-get install compiz compizconfig-settings-manager compiz-fusion-plugins-extra compiz-fusion-plugins-main compiz-plugins
+</code></pre><p>7. 安装docky 如果你喜欢</p>
+<pre><code>sudo add-apt-repository ppa:ricotz/docky
+sudo apt-get update    
+sudo apt-get install  docky
+</code></pre><p>装好自己设置咯,附上卸载…</p>
+<pre><code>sudo apt-get remove docky
+</code></pre><p>现在你的Ubuntu桌面变得具有超棒了！所有的这些步骤都有成千上万种选择，所以折腾是无极限的。还在等什么？还不赶紧去享受你的新Ubuntu桌面！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014-08-08-install-wine-qqintl/" rel="next" title="Ubuntu安装QQ国际版wine-qqintl">
+                <i class="fa fa-chevron-left"></i> Ubuntu安装QQ国际版wine-qqintl
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014-10-15-sort-algorithm-java/" rel="prev" title="程序员必须掌握的8大排序算法">
+                程序员必须掌握的8大排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

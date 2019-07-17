@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Weather,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近使用天气预报接口很不如意啊，稳定的要收费，免费的又不稳定, 记录下自己的做法……  1. 根据网络请求获得当前城市的ID,方法,额,百度吧.或者直接搜天气咯. 2. 根据百度搜索天气预报第一条获得的数据，进去http://www.weather.com.cn/weather1d/101020100.shtml进行网页抓取">
+<meta name="keywords" content="Weather">
+<meta property="og:type" content="article">
+<meta property="og:title" content="天气预报接口1">
+<meta property="og:url" content="https://note.pin.bo/2015-03-06-weather-forecast-interface/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="最近使用天气预报接口很不如意啊，稳定的要收费，免费的又不稳定, 记录下自己的做法……  1. 根据网络请求获得当前城市的ID,方法,额,百度吧.或者直接搜天气咯. 2. 根据百度搜索天气预报第一条获得的数据，进去http://www.weather.com.cn/weather1d/101020100.shtml进行网页抓取">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://note.pin.bo/images/post_images/2015-03-06-weather-forecast-interface-01.png">
+<meta property="og:image" content="https://note.pin.bo/images/post_images/2015-03-06-weather-forecast-interface-02.png">
+<meta property="og:image" content="https://note.pin.bo/images/post_images/2015-03-06-weather-forecast-interface-03.png">
+<meta property="og:image" content="https://note.pin.bo/images/post_images/2015-03-06-weather-forecast-interface-04.png">
+<meta property="og:updated_time" content="2017-02-20T04:38:52.005Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="天气预报接口1">
+<meta name="twitter:description" content="最近使用天气预报接口很不如意啊，稳定的要收费，免费的又不稳定, 记录下自己的做法……  1. 根据网络请求获得当前城市的ID,方法,额,百度吧.或者直接搜天气咯. 2. 根据百度搜索天气预报第一条获得的数据，进去http://www.weather.com.cn/weather1d/101020100.shtml进行网页抓取">
+<meta name="twitter:image" content="https://note.pin.bo/images/post_images/2015-03-06-weather-forecast-interface-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2015-03-06-weather-forecast-interface/">
+
+
+
+
+
+  <title>天气预报接口1 | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2015-03-06-weather-forecast-interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">天气预报接口1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-06T11:13:00+08:00">
+                2015-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近使用天气预报接口很不如意啊，稳定的要收费，免费的又不稳定, 记录下自己的做法……</p>
+</blockquote>
+<p>1. 根据网络请求获得当前城市的ID,方法,额,百度吧.或者直接搜天气咯.</p>
+<p>2. 根据百度搜索天气预报第一条获得的数据，进去<a href="http://www.weather.com.cn/weather1d/101020100.shtml进行网页抓取" target="_blank" rel="noopener">http://www.weather.com.cn/weather1d/101020100.shtml进行网页抓取</a></p>
+<a id="more"></a>
+<p><img src="/images/post_images/2015-03-06-weather-forecast-interface-01.png" alt="Alt text"></p>
+<p>3. 根据今天的白天和夜晚得到的数据进行组合,具体要显示哪些信息,由自己根据需求拼在一起.</p>
+<p><img src="/images/post_images/2015-03-06-weather-forecast-interface-02.png" alt="Alt text"></p>
+<p>4. 代码如下：</p>
+<pre><code>package name.zhoufei.weather;
+
+import name.zhoufei.util.HttpPost;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+/**
+ * Created by ZhouFei on 2015/3/6.
+ */
+public class Weather {
+
+    public static void main(String[] args){
+    getWeather(getAreaId());
+    }
+
+    /**
+     * 根据网络请求获得IP地址，同时得到该网关下的城市ID
+     * @return 城市ID
+     */
+    public static String getAreaId(){
+    String result = HttpPost.sendGET(&quot;http://61.4.185.48:81/g/&quot;,&quot;UTF-8&quot;);
+    return result.substring(result.indexOf(&quot;id=&quot;)+3,result.indexOf(&quot;;if&quot;));
+    }
+
+    /**
+     * 调用百度搜索&quot;上海天气&quot;第一条，进去http://www.weather.com.cn/weather1d/101020100.shtml 进行网页抓取（本吊初级程序员）
+     * @param areaId 城市ID
+     */
+    public static void getWeather(String areaId){
+    String URL = &quot;http://www.weather.com.cn/weather1d/&quot;+areaId+&quot;.shtml&quot;;
+    String content = HttpPost.sendGET(URL, &quot;utf8&quot;);
+    String weatherHtml  = content.substring(content.indexOf(&quot;&amp;lt;!-- 今天明天预报 begin--&amp;gt;&quot;)+20,content.indexOf(&quot;&amp;lt;!-- 今天明天预报 end--&amp;gt;&quot;));
+    content = content.replaceAll(&quot;\\s*&quot;, &quot;&quot;);
+    String city  = content.substring(content.indexOf(&quot;&amp;lt;h1&amp;gt;城区&amp;lt;/h1&amp;gt;&amp;lt;h3&amp;gt;&quot;)+15,content.indexOf(&quot;&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!--嵌套周边景点divbegin--&amp;gt;&quot;));
+    String THtml  = weatherHtml.substring(weatherHtml.indexOf(&quot;&amp;lt;li&quot;),weatherHtml.indexOf(&quot;&amp;lt;/li&amp;gt;&quot;)+5);
+    String NHtml  = weatherHtml.substring(weatherHtml.lastIndexOf(&quot;&amp;lt;li&quot;),weatherHtml.lastIndexOf(&quot;&amp;lt;/li&amp;gt;&quot;)+5);
+    Document doc = Jsoup.parse(THtml);
+    String dw = doc.select(&quot;p&quot;).first().text();//dw = day weather
+    String dt = doc.select(&quot;p&quot;).get(1).text(); //da = day temperature
+    Document doc1 = Jsoup.parse(NHtml);
+    String nw = doc1.select(&quot;p&quot;).first().text();//night weather
+    String nt = doc1.select(&quot;p&quot;).get(1).text();//night temperature
+    System.out.println(&quot;city：&quot;+city);
+    if(dw.contains(&quot;，&quot;)){
+        dw = dw.substring(0,dw.indexOf(&quot;，&quot;)); //把天气中   阴，有雾霾  这样的 ，后面的内容去掉，让白天的天气和完善的天气组合起来形成一天的天气
+    }
+    if(nw.contains(&quot;，&quot;)){
+        nw = nw.substring(0,nw.indexOf(&quot;，&quot;)); //把天气中   阴，有雾霾  这样的 ，后面的内容去掉，让白天的天气和完善的天气组合起来形成一天的天气
+    }
+    System.out.println(&quot;weather：&quot;+dw+&quot;-&quot;+nw);
+    System.out.println(&quot;temperature：&quot;+(dt+&quot;~&quot;+nt).replaceAll(&quot;\\s*&quot;, &quot;&quot;).replaceAll(&quot;°C&quot;,&quot;℃&quot;));
+    }
+}
+</code></pre><p>5. 得到的结果如图显示</p>
+<p><img src="/images/post_images/2015-03-06-weather-forecast-interface-03.png" alt="Alt text"></p>
+<p>6. 4月5号对此篇文章中稍作优化，但是有时候还是会有不美观的地方(网络/解析等原因)。代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> name.zhoufei.weather;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> name.zhoufei.util.HttpPost;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by ZhouFei on 2015/3/6.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Weather</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"> getWeather1D(getAreaId());</span><br><span class="line"> getWeather(getAreaId());</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据网络请求获得IP地址，同时得到该网关下的城市ID</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 城市ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAreaId</span><span class="params">()</span></span>&#123;</span><br><span class="line"> String result = HttpPost.sendGET(<span class="string">"http://61.4.185.48:81/g/"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line"> <span class="keyword">return</span> result.substring(result.indexOf(<span class="string">"id="</span>)+<span class="number">3</span>,result.indexOf(<span class="string">";if"</span>));</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用百度搜索"上海天气"第一条，进去http://www.weather.com.cn/weather1d/101020100.shtml 进行网页抓取（本吊初级程序员）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> areaId 城市ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getWeather1D</span><span class="params">(String areaId)</span></span>&#123;</span><br><span class="line"> String URL = <span class="string">"http://www.weather.com.cn/weather1d/"</span>+areaId+<span class="string">".shtml"</span>;</span><br><span class="line"> String content = HttpPost.sendGET(URL, <span class="string">"utf8"</span>);</span><br><span class="line"> String weatherHtml = content.substring(content.indexOf(<span class="string">"&amp;lt;!-- 今天明天预报 begin--&amp;gt;"</span>)+<span class="number">20</span>,content.indexOf(<span class="string">"&amp;lt;!-- 今天明天预报 end--&amp;gt;"</span>));</span><br><span class="line"> content = content.replaceAll(<span class="string">"\\s*"</span>, <span class="string">""</span>);</span><br><span class="line"> String city = content.substring(content.indexOf(<span class="string">"&amp;lt;h1&amp;gt;城区&amp;lt;/h1&amp;gt;&amp;lt;h3&amp;gt;"</span>)+<span class="number">15</span>,content.indexOf(<span class="string">"&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!--嵌套周边景点divbegin--&amp;gt;"</span>));</span><br><span class="line"> String THtml = weatherHtml.substring(weatherHtml.indexOf(<span class="string">"&amp;lt;li"</span>),weatherHtml.indexOf(<span class="string">"&amp;lt;/li&amp;gt;"</span>)+<span class="number">5</span>);</span><br><span class="line"> String NHtml = weatherHtml.substring(weatherHtml.lastIndexOf(<span class="string">"&amp;lt;li"</span>),weatherHtml.lastIndexOf(<span class="string">"&amp;lt;/li&amp;gt;"</span>)+<span class="number">5</span>);</span><br><span class="line"> Document doc = Jsoup.parse(THtml);</span><br><span class="line"> String dw = doc.select(<span class="string">"p"</span>).first().text();<span class="comment">//dw = day weather</span></span><br><span class="line"> String dt = doc.select(<span class="string">"p"</span>).get(<span class="number">1</span>).text(); <span class="comment">//da = day temperature</span></span><br><span class="line"> Document doc1 = Jsoup.parse(NHtml);</span><br><span class="line"> String nw = doc1.select(<span class="string">"p"</span>).first().text();<span class="comment">//night weather</span></span><br><span class="line"> String nt = doc1.select(<span class="string">"p"</span>).get(<span class="number">1</span>).text();<span class="comment">//night temperature</span></span><br><span class="line"> System.out.println(<span class="string">"city："</span>+city);</span><br><span class="line"> <span class="keyword">if</span>(dw.contains(<span class="string">"，"</span>))&#123;</span><br><span class="line"> dw = dw.substring(<span class="number">0</span>,dw.indexOf(<span class="string">"，"</span>)); <span class="comment">//把天气中 阴，有雾霾 这样的 ，后面的内容去掉，让白天的天气和完善的天气组合起来形成一天的天气</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span>(nw.contains(<span class="string">"，"</span>))&#123;</span><br><span class="line"> nw = nw.substring(<span class="number">0</span>,nw.indexOf(<span class="string">"，"</span>)); <span class="comment">//把天气中 阴，有雾霾 这样的 ，后面的内容去掉，让白天的天气和完善的天气组合起来形成一天的天气</span></span><br><span class="line"> &#125;</span><br><span class="line"> System.out.println(<span class="string">"weather："</span>+dw+<span class="string">"-"</span>+nw);</span><br><span class="line"> System.out.println(<span class="string">"temperature："</span>+(dt+<span class="string">"~"</span>+nt).replaceAll(<span class="string">"\\s*"</span>, <span class="string">""</span>).replaceAll(<span class="string">"°C"</span>,<span class="string">"℃"</span>));</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用百度搜索"上海天气"第一条，进去http://www.weather.com.cn/weather1d/101020100.shtml，</span></span><br><span class="line"><span class="comment"> * 然后点击七天预报 进入http://www.weather.com.cn/weather/101020100.shtml 进行网页抓取</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> areaId 城市ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getWeather</span><span class="params">(String areaId)</span></span>&#123;</span><br><span class="line"> String URL = <span class="string">"http://www.weather.com.cn/weather/"</span>+areaId+<span class="string">".shtml"</span>;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line"> Document doc = Jsoup.connect(URL).get();</span><br><span class="line"> <span class="comment">//System.out.println(doc);</span></span><br><span class="line"> System.out.println(<span class="string">"找到ID为7d的NODE："</span>+doc.getElementById(<span class="string">"7d"</span>).select(<span class="string">"li"</span>).first());</span><br><span class="line"> System.out.println(<span class="string">"城市："</span>+doc.getElementsByClass(<span class="string">"cityName"</span>).select(<span class="string">"h3"</span>).get(<span class="number">0</span>).text());</span><br><span class="line"> String weather = doc.getElementById(<span class="string">"7d"</span>).select(<span class="string">"p"</span>).first().text();</span><br><span class="line"> System.out.println(<span class="string">"天气："</span>+weather);</span><br><span class="line"> String t1 = doc.getElementById(<span class="string">"7d"</span>).select(<span class="string">"span"</span>).get(<span class="number">0</span>).text();</span><br><span class="line"> <span class="comment">//System.out.println(t1);</span></span><br><span class="line"> String t2 = doc.getElementById(<span class="string">"7d"</span>).select(<span class="string">"span"</span>).get(<span class="number">1</span>).text();</span><br><span class="line"> <span class="comment">//System.out.println(t2);</span></span><br><span class="line"> String temp = <span class="keyword">null</span>;</span><br><span class="line"> <span class="keyword">if</span>(t1==<span class="keyword">null</span>)&#123;</span><br><span class="line"> temp=t2+<span class="string">"℃"</span>;</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> temp=t1+<span class="string">"℃~"</span>+t2+<span class="string">"℃"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> System.out.println(<span class="string">"温度："</span>+temp);</span><br><span class="line"> &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"> e.printStackTrace();</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7.测试如下图,另外可以使用UC首页和中国天气网合作的接口，也可以使用百度等一切天气接口，为了更加的稳定，建议使用付费接口。</p>
+<p><img src="/images/post_images/2015-03-06-weather-forecast-interface-04.png" alt="Alt text"></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>中文名称</th>
+<th>英文名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>晴</td>
+<td>Sunny</td>
+</tr>
+<tr>
+<td>01</td>
+<td>多云</td>
+<td>Cloudy</td>
+</tr>
+<tr>
+<td>02</td>
+<td>阴</td>
+<td>Overcast</td>
+</tr>
+<tr>
+<td>03</td>
+<td>阵雨</td>
+<td>Shower</td>
+</tr>
+<tr>
+<td>04</td>
+<td>雷阵雨</td>
+<td>Thundershower</td>
+</tr>
+<tr>
+<td>05</td>
+<td>雷阵雨伴有冰雹</td>
+<td>Thundershower with hail</td>
+</tr>
+<tr>
+<td>06</td>
+<td>雨夹雪</td>
+<td>Sleet</td>
+</tr>
+<tr>
+<td>07</td>
+<td>小雨</td>
+<td>Light rain</td>
+</tr>
+<tr>
+<td>08</td>
+<td>中雨</td>
+<td>Moderate rain</td>
+</tr>
+<tr>
+<td>09</td>
+<td>大雨</td>
+<td>Heavy rain</td>
+</tr>
+<tr>
+<td>10</td>
+<td>暴雨</td>
+<td>Storm</td>
+</tr>
+<tr>
+<td>11</td>
+<td>大暴雨</td>
+<td>Heavy storm</td>
+</tr>
+<tr>
+<td>12</td>
+<td>特大暴雨</td>
+<td>Severe storm</td>
+</tr>
+<tr>
+<td>13</td>
+<td>阵雪</td>
+<td>Snow flurry</td>
+</tr>
+<tr>
+<td>14</td>
+<td>小雪</td>
+<td>Light snow</td>
+</tr>
+<tr>
+<td>15</td>
+<td>中雪</td>
+<td>Moderate snow</td>
+</tr>
+<tr>
+<td>16</td>
+<td>大雪</td>
+<td>Heavy snow</td>
+</tr>
+<tr>
+<td>17</td>
+<td>暴雪</td>
+<td>Snowstorm</td>
+</tr>
+<tr>
+<td>18</td>
+<td>雾</td>
+<td>Foggy</td>
+</tr>
+<tr>
+<td>19</td>
+<td>冻雨</td>
+<td>Ice rain</td>
+</tr>
+<tr>
+<td>20</td>
+<td>沙尘暴</td>
+<td>Dust Storm</td>
+</tr>
+<tr>
+<td>21</td>
+<td>小到中雨</td>
+<td>Light to moderate rain</td>
+</tr>
+<tr>
+<td>22</td>
+<td>中到大雨</td>
+<td>Moderate to heavy rain</td>
+</tr>
+<tr>
+<td>23</td>
+<td>大到暴雨</td>
+<td>Heavy rain to storm</td>
+</tr>
+<tr>
+<td>24</td>
+<td>暴雨到大暴雨</td>
+<td>Storm to heavy storm</td>
+</tr>
+<tr>
+<td>25</td>
+<td>大暴雨到特大暴雨</td>
+<td>Heavy to severe storm</td>
+</tr>
+<tr>
+<td>26</td>
+<td>小到中雪</td>
+<td>Light to moderate snow</td>
+</tr>
+<tr>
+<td>27</td>
+<td>中到大雪</td>
+<td>Moderate to heavy snow</td>
+</tr>
+<tr>
+<td>28</td>
+<td>大到暴雪</td>
+<td>Heavy snow to snowstorm</td>
+</tr>
+<tr>
+<td>29</td>
+<td>浮尘</td>
+<td>Dust</td>
+</tr>
+<tr>
+<td>30</td>
+<td>扬沙</td>
+<td>Sandv</td>
+</tr>
+<tr>
+<td>31</td>
+<td>强沙尘暴</td>
+<td>Sandstormv</td>
+</tr>
+<tr>
+<td>32</td>
+<td>霾</td>
+<td>Haze</td>
+</tr>
+<tr>
+<td>33</td>
+<td>无</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Weather/" rel="tag"># Weather</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014-11-16-git-note/" rel="next" title="Git学习笔记">
+                <i class="fa fa-chevron-left"></i> Git学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015-04-13-weather-forecast-interface/" rel="prev" title="天气预报接口2">
+                天气预报接口2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

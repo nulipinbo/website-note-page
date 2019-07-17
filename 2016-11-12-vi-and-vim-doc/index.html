@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vi,vim,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vim-galore 中文翻译  Vim from zero to hero - Vim 从入门到精通   原文地址：https://github.com/mhinz/vim-galore 原文作者：Marco Hinz 本文地址：https://github.com/wsdjeg/vim-galore-zh_cn  简介 什么是 Vim Vim 哲学 入门 精简的 vimrc 我正在使用的是什么">
+<meta name="keywords" content="vi,vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim 从入门到精通 [转]">
+<meta property="og:url" content="https://note.pin.bo/2016-11-12-vi-and-vim-doc/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="vim-galore 中文翻译  Vim from zero to hero - Vim 从入门到精通   原文地址：https://github.com/mhinz/vim-galore 原文作者：Marco Hinz 本文地址：https://github.com/wsdjeg/vim-galore-zh_cn  简介 什么是 Vim Vim 哲学 入门 精简的 vimrc 我正在使用的是什么">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://rawgit.com/aleen42/badges/master/src/juejin_translation.svg">
+<meta property="og:image" content="https://img.shields.io/badge/QQ%e7%be%a4-121056965-blue.svg">
+<meta property="og:updated_time" content="2017-04-05T10:03:36.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim 从入门到精通 [转]">
+<meta name="twitter:description" content="vim-galore 中文翻译  Vim from zero to hero - Vim 从入门到精通   原文地址：https://github.com/mhinz/vim-galore 原文作者：Marco Hinz 本文地址：https://github.com/wsdjeg/vim-galore-zh_cn  简介 什么是 Vim Vim 哲学 入门 精简的 vimrc 我正在使用的是什么">
+<meta name="twitter:image" content="https://rawgit.com/aleen42/badges/master/src/juejin_translation.svg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2016-11-12-vi-and-vim-doc/">
+
+
+
+
+
+  <title>Vim 从入门到精通 [转] | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2016-11-12-vi-and-vim-doc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vim 从入门到精通 [转]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-12T22:08:00+08:00">
+                2016-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vim-galore-中文翻译"><a href="#vim-galore-中文翻译" class="headerlink" title="vim-galore 中文翻译"></a>vim-galore 中文翻译</h1><p><a href="https://github.com/xitu/gold-miner/" target="_blank" rel="noopener"><img src="https://rawgit.com/aleen42/badges/master/src/juejin_translation.svg" alt="掘金翻译计划"></a></p>
+<blockquote>
+<p>Vim from zero to hero - Vim 从入门到精通</p>
+</blockquote>
+<ul>
+<li>原文地址：<a href="https://github.com/mhinz/vim-galore" target="_blank" rel="noopener">https://github.com/mhinz/vim-galore</a></li>
+<li>原文作者：Marco Hinz</li>
+<li>本文地址：<a href="https://github.com/wsdjeg/vim-galore-zh_cn" target="_blank" rel="noopener">https://github.com/wsdjeg/vim-galore-zh_cn</a></li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a><a href="#简介-1">简介</a></h2><ul>
+<li><a href="#什么是-vim">什么是 Vim</a></li>
+<li><a href="#vim-哲学">Vim 哲学</a></li>
+<li><a href="#入门">入门</a></li>
+<li><a href="#精简的-vimrc">精简的 vimrc</a></li>
+<li><a href="#我正在使用什么样的-vim">我正在使用的是什么样的 Vim</a></li>
+<li><a href="#备忘录">备忘录</a></li>
+</ul>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a><a href="#基础-1">基础</a></h2><ul>
+<li><a href="#缓冲区窗口标签">缓冲区，窗口，标签</a></li>
+<li><a href="#已激活已载入已列出已命名缓冲区">当前缓冲区，加载缓冲区，缓冲区列表，命名缓冲区</a></li>
+<li><a href="#参数列表">参数列表</a></li>
+<li><a href="#按键映射">按键映射</a><a id="more"></a></li>
+<li><a href="#映射占位符">映射占位符</a></li>
+<li><a href="#寄存器">寄存器</a></li>
+<li><a href="#范围">范围</a></li>
+<li><a href="#标注">标注</a></li>
+<li><a href="#补全">补全</a></li>
+<li><a href="#动作操作符文本对象">动作，操作符，文本对象</a></li>
+<li><a href="#自动命令">自动命令</a></li>
+<li><a href="#变更历史跳转历史">变更历史，跳转历史</a></li>
+<li><a href="#内容变更历史记录">内容变更历史记录</a></li>
+<li><a href="#全局位置信息表局部位置信息表">全局位置信息表，局部位置信息表</a></li>
+<li><a href="#宏">宏</a></li>
+<li><a href="#颜色主题">颜色主题</a></li>
+<li><a href="#折叠">折叠</a></li>
+<li><a href="#会话">会话</a></li>
+<li><a href="#局部化">局部化</a></li>
+</ul>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a><a href="#用法-1">用法</a></h2><ul>
+<li><a href="#获取离线帮助">获取离线帮助</a></li>
+<li><a href="#获取离线帮助备选">获取离线帮助(备选)</a></li>
+<li><a href="#获取在线帮助">获取在线帮助</a></li>
+<li><a href="#执行自动命令">执行自动命令</a><ul>
+<li><a href="#用户自定义事件">用户自定义事件</a></li>
+<li><a href="#内部自带事件">内部自带事件</a></li>
+</ul>
+</li>
+<li><a href="#剪切板">剪贴板</a><ul>
+<li><a href="#剪贴板使用-windows-osx">剪贴板使用 (Windows, OSX)</a></li>
+<li><a href="#剪贴板使用-linux-bsd-">剪贴板使用 (Linux, BSD, …)</a></li>
+</ul>
+</li>
+<li><a href="#打开文件时恢复光标位置">打开文件时恢复光标位置</a></li>
+<li><a href="#备份文件交换文件撤销文件以及-viminfo-文件的处理">备份文件，交换文件，撤销文件以及 viminfo 文件的处理</a></li>
+<li><a href="#编辑远程文件">编辑远程文件</a></li>
+<li><a href="#插件管理">插件管理</a></li>
+<li><a href="#片段插入">片段插入</a></li>
+<li><a href="#使用外部程序和过滤器">使用外部程序和过滤器</a></li>
+<li><a href="#matchit">MatchIt</a></li>
+</ul>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a><a href="#技巧-1">技巧</a></h2><ul>
+<li><a href="#聪明的使用-n-和-n">聪明的使用 n 和 N</a></li>
+<li><a href="#聪明的使用命令行历史">聪明的使用命令行历史</a></li>
+<li><a href="#智能-ctrl-l">智能 Ctrl-l</a></li>
+<li><a href="#禁用错误报警声音和图标">禁用错误报警声音和图标</a></li>
+<li><a href="#快速移动当前行">快速移动当前行</a></li>
+<li><a href="#快速添加空行">快速添加空行</a></li>
+<li><a href="#快速编辑自定义宏">快速编辑自定义宏</a></li>
+<li><a href="#快速跳转到源头文件">快速跳转到源(头)文件</a></li>
+<li><a href="#在-gui-中快速改变字体大小">在 GUI 中快速改变字体大小</a></li>
+<li><a href="#根据模式改变光标类型">根据模式改变光标类型</a></li>
+<li><a href="#防止水平滑动的时候失去选择">防止水平滑动的时候失去选择</a></li>
+<li><a href="#重新载入保存文件">重新载入保存文件</a></li>
+<li><a href="#智能当前行">智能当前行</a></li>
+<li><a href="#更快的关键字补全">更快的关键字补全</a></li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a><a href="#命令-1">命令</a></h2><ul>
+<li><a href="#global---在所有匹配行执行命令">:global</a> - 在所有匹配行执行命令</li>
+<li><a href="#normal-and-execute---脚本梦之队">:normal and :execute</a> - 脚本梦之队</li>
+<li><a href="#redir---重定向消息">:redir</a> - 重定向消息</li>
+</ul>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a><a href="#调试-1">调试</a></h2><ul>
+<li><a href="#常规建议">常规建议</a></li>
+<li><a href="#查看启动日志">查看启动日志</a></li>
+<li><a href="#查看运行时日志">查看运行时日志</a></li>
+<li><a href="#调整日志等级">调整日志等级</a></li>
+<li><a href="#vim-脚本调试">Vim 脚本调试</a></li>
+<li><a href="#语法文件调试">语法文件调试</a></li>
+</ul>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a><a href="#杂项-1">杂项</a></h2><ul>
+<li><a href="#附加资源">附加资源</a></li>
+<li><a href="#vim-配置集合">Vim 配置集合</a></li>
+<li><a href="#内置插件">内置插件</a></li>
+<li><a href="#将-control-映射到-capslock">将 Control 映射到 CapsLock</a></li>
+<li><a href="#复活节彩蛋">复活节彩蛋</a></li>
+<li><a href="#为何使用-hjkl">为何使用 hjkl</a></li>
+</ul>
+<h2 id="怪癖"><a href="#怪癖" class="headerlink" title="怪癖"></a><a href="#怪癖-1">怪癖</a></h2><ul>
+<li><a href="#编辑小文件很慢">编辑小文件很慢</a></li>
+<li><a href="#编辑大文件很慢">编辑大文件很慢</a></li>
+<li><a href="#新行用于-nul">新行用于 NUL</a></li>
+<li><a href="#相同部分粘贴-要不为什么我总要设置粘贴">相同部分粘贴 (要不为什么我总要设置‘粘贴’?)</a></li>
+<li><a href="#在终端使用-esc-延时">在终端使用 Esc 延时</a></li>
+<li><a href="#无法重复函数中执行的搜索">无法重复函数中执行的搜索</a></li>
+</ul>
+<h2 id="主题列表"><a href="#主题列表" class="headerlink" title="主题列表"></a><a href="#主题列表-1">主题列表</a></h2><h2 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a><a href="content/plugins.md">插件列表</a></h2><h2 id="Neovim"><a href="#Neovim" class="headerlink" title="Neovim"></a><a href="content/neovim.md">Neovim</a></h2><hr>
+<h1 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h1><h2 id="什么是-Vim？"><a href="#什么是-Vim？" class="headerlink" title="什么是 Vim？"></a>什么是 Vim？</h2><p><a href="http://www.vim.org" target="_blank" rel="noopener">Vim</a> 是一个历史悠久的文本编辑器，可以追溯到 <a href="https://en.wikipedia.org/wiki/QED_(text_editor" target="_blank" rel="noopener">qed</a>)。<a href="https://en.wikipedia.org/wiki/Bram_Moolenaar" target="_blank" rel="noopener">Bram<br>Moolenaar</a> 于 1991 年发布初始版本。</p>
+<p>该项目托管在 <a href="http://www.vim.org/index.php" target="_blank" rel="noopener">vim.org</a>。</p>
+<p>获取 Vim：用包管理器安装或者直接到 vim.org <a href="http://www.vim.org/download.php" target="_blank" rel="noopener">下载</a>。</p>
+<p>讨论使用相关问题最好使用 <a href="https://groups.google.com/forum/#!forum/vim_use" target="_blank" rel="noopener">vim_use</a> 邮件列表或者使用 IRC(<a href="https://freenode.net" target="_blank" rel="noopener">Freenode</a>) 的 <code>#vim</code> 频道。</p>
+<p>欢迎加入我们的中文讨论群：<a href="https://jq.qq.com/?_wv=1027&amp;k=43DB6SG" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/QQ%e7%be%a4-121056965-blue.svg" alt="QQ"></a></p>
+<p>项目在 <a href="https://github.com/vim/vim" target="_blank" rel="noopener">Github</a> 上开发，项目讨论请订阅 <a href="https://groups.google.com/forum/#!forum/vim_dev" target="_blank" rel="noopener">vim_dev</a> 邮件列表。</p>
+<p>通过阅读 <a href="http://www.viemu.com/a-why-vi-vim.html" target="_blank" rel="noopener">Why, oh WHY, do those #?@! nutheads use vi?</a> 来对 Vim 进行大致的了解。</p>
+<h2 id="Vim-哲学"><a href="#Vim-哲学" class="headerlink" title="Vim 哲学"></a>Vim 哲学</h2><p>Vim 采用模式编辑的理念，即它提供了多种模式，按键在不同的模式下作用不同。你可以在 <em>普通模式</em> 下浏览文件，在 <em>插入模式</em> 下插入文本，在 <em>可视模式</em> 下选择行，在 <em>命令模式</em> 下执行命令等等。起初这听起来可能很复杂，但是这有一个很大的优点：不需要通过同时按住多个键来完成操作，大多数时候你只需要依次按下这些按键即可。越常用的操作，所需要的按键数量越少。</p>
+<p>和模式编辑紧密相连的概念是“操作符”和“动作”。<em>操作符</em>开始一些行为，例如：修改，删除，或者选择文本。之后你要用一个_动作_来指定需要操作的文本区域。比如，要改变括号内的文本，需要执行 <code>ci(</code> （读做 <em>change inner parentheses</em>）；删除整个段落的内容，需要执行 <code>dap</code> （读做：<em>delete<br>around paragraph</em>）。</p>
+<p>如果你能看见 Vim 老司机操作，你会发现他们使用 Vim 脚本语言就如同钢琴师弹钢琴一样。复杂的操作只需要几个按键就能完成。他们甚至不用刻意去想，因为这已经成为<a href="https://en.wikipedia.org/wiki/Muscle_memory" target="_blank" rel="noopener">肌肉记忆</a>了。这减少<a href="https://en.wikipedia.org/wiki/Cognitive_load" target="_blank" rel="noopener">认识负荷</a>并帮助人们专注于实际任务。</p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>Vim 自带一个交互式的教程，内含你需要了解的最基础的信息，你可以通过终端运行以下命令打开教程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vimtutor</span><br></pre></td></tr></table></figure>
+<p>不要因为这个看上去很无聊而跳过，按照此教程多练习。你以前用的 IDE 或者其他编辑器很少是有“模式”概念的，因此一开始你会很难适应模式切换。但是你 Vim 使用的越多，<a href="https://en.wikipedia.org/wiki/Muscle_memory" target="_blank" rel="noopener">肌肉记忆</a> 将越容易形成。</p>
+<p>Vim 基于一个 <a href="https://en.wikipedia.org/wiki/Vi" target="_blank" rel="noopener">vi</a> 克隆，叫做 <a href="https://en.wikipedia.org/wiki/Stevie_(text_editor" target="_blank" rel="noopener">Stevie</a>)，支持两种运行模式：”compatible” 和 “nocompatible”。在兼容模式下运行 Vim 意味着使用 vi 的默认设置，而不是 Vim 的默认设置。除非你新建一个用户的 <code>vimrc</code> 或者使用 <code>vim -N</code> 命令启动 Vim，否则就是在兼容模式下运行 Vim！请大家不要在兼容模式下运行 Vim。</p>
+<p>下一步</p>
+<ol>
+<li>创建你自己的 <a href="#精简的-vimrc">vimrc</a>。</li>
+<li>在第一周准备<a href="#备忘录">备忘录</a>。</li>
+<li>通读<a href="#基础-1">基础</a>章节了解 Vim 还有哪些功能。</li>
+<li>按需学习！Vim 是学不完的。如果你遇到了问题，先上网寻找解决方案，你的问题可能已经被解决了。Vim 拥有大量的参考文档，知道如何利用这些参考文档很有必要：<a href="#获取离线帮助">获取离线帮助</a>。</li>
+<li>浏览<a href="#附加资源">附加资源</a>。</li>
+</ol>
+<p>最后一个建议：使用<a href="#插件管理">插件</a>之前，请先掌握 Vim 的基本操作。很多插件都只是对 Vim 自带功能的封装。</p>
+<h2 id="精简的-vimrc"><a href="#精简的-vimrc" class="headerlink" title="精简的 vimrc"></a>精简的 vimrc</h2><p>用户的 vimrc 配置文件可以放在 <code>~/.vimrc</code>，或者为了更好的分离放在 <code>~/.vim/vimrc</code>，后者更便于通过版本控制软件备份和同步整个配置，比方说 Github。</p>
+<p>你可以在网上找到许多精简的 vimrc 配置文件，我的版本可能并不是最简单的版本，但是我的版本提供了一套我认为良好的，非常适合入门的设置。</p>
+<p>最终你需要阅读完那些设置，然后自行决定需要使用哪些。:-)</p>
+<p>精简的 vimrc 地址：<a href="contents/minimal-vimrc.vim">minimal-vimrc</a></p>
+<p>如果你有兴趣，这里是我（原作者）的 <a href="https://github.com/mhinz/dotfiles/blob/master/vim/vimrc" target="_blank" rel="noopener">vimrc</a>。</p>
+<p><strong>建议</strong>：大多数插件作者都维护不止一个插件并且将他们的 vimrc 放在 Github 上展示（通常放在叫做 “vim-config” 或者 “dotfiles” 的仓库中），所以当你发现你喜欢的插件时，去插件维护者的 Github 主页看看有没有这样的仓库。</p>
+<h2 id="我正在使用什么样的-Vim"><a href="#我正在使用什么样的-Vim" class="headerlink" title="我正在使用什么样的 Vim"></a>我正在使用什么样的 Vim</h2><p>使用 <code>:version</code> 命令将向你展示当前正在运行的 Vim 的所有相关信息，包括它是如何编译的。</p>
+<p>第一行告诉你这个二进制文件的编译时间和版本号，比如：7.4。接下来的一行呈现 <code>Included patches: 1-1051</code>，这是补丁版本包。因此你 Vim 确切的版本号是  7.4.1051。</p>
+<p>另一行显示着一些像 <code>Tiny version without GUI</code> 或者 <code>Huge version with GUI</code> 的信息。很显然这些信息告诉你当前的 Vim 是否支持 GUI，例如：从终端中运行 <code>gvim</code> 或者从终端模拟器中的 Vim 内运行 <code>:gui</code> 命令。另一个重要的信息是 <code>Tiny</code> 和 <code>Huge</code>。Vim 的特性集区分被叫做 <code>tiny</code>，<code>small</code>，<code>normal</code>，<code>big</code> and <code>huge</code>，所有的都实现不同的功能子集。</p>
+<p><code>:version</code> 主要的输出内容是特性列表。<code>+clipboard</code> 意味这剪贴板功能被编译支持了，<code>-clipboard</code> 意味着剪贴板特性没有被编译支持。</p>
+<p>一些功能特性需要编译支持才能正常工作。例如：为了让 <code>:prof</code> 工作，你需要使用 <code>huge</code> 模式编译的 Vim，因为那种模式启用了 <code>+profile</code> 特性。</p>
+<p>如果你的输出情况并不是那样，并且你是从包管理器安装 Vim 的，确保你安装了 <code>vim-x</code>，<code>vim-x11</code>，<code>vim-gtk</code>，<code>vim-gnome</code> 这些包或者相似的，因为这些包通常都是 <code>huge</code> 模式编译的。</p>
+<p>你也可以运行下面这段代码来测试 Vim 版本以及功能支持：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">" Do something if running at least Vim 7.4.42 with +profile enabled.</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">v:version</span> &gt; <span class="number">704</span> || <span class="variable">v:version</span> == <span class="number">704</span> &amp;&amp; <span class="built_in">has</span>(<span class="string">'patch42'</span>)) &amp;&amp; <span class="built_in">has</span>(<span class="string">'profile'</span>)</span><br><span class="line">  <span class="comment">" do stuff</span></span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>相关帮助：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:h :version</span><br><span class="line">:h feature-list</span><br><span class="line">:h +feature-list</span><br></pre></td></tr></table></figure>
+<h2 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h2><p>为了避免版权问题，我只贴出链接：</p>
+<ul>
+<li><a href="http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png" target="_blank" rel="noopener">http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png</a></li>
+<li><a href="https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png" target="_blank" rel="noopener">https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png</a></li>
+<li><a href="http://www.nathael.org/Data/vi-vim-cheat-sheet.svg" target="_blank" rel="noopener">http://www.nathael.org/Data/vi-vim-cheat-sheet.svg</a></li>
+<li><a href="http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png" target="_blank" rel="noopener">http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png</a></li>
+<li><a href="http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png" target="_blank" rel="noopener">http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png</a></li>
+</ul>
+<p>或者在 Vim 中快速打开备忘录：<a href="https://github.com/lifepillar/vim-cheat40" target="_blank" rel="noopener">vim-cheat40</a>。</p>
+<h1 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h1><h2 id="缓冲区，窗口，标签"><a href="#缓冲区，窗口，标签" class="headerlink" title="缓冲区，窗口，标签"></a>缓冲区，窗口，标签</h2><p>Vim 是一个文本编辑器。每次文本都是作为<strong>缓冲区</strong>的一部分显示的。每一份文件都是在他们自己独有的缓冲区打开的，插件显示的内容也在它们自己的缓冲区中。</p>
+<p>缓冲区有很多属性，比如这个缓冲区的内容是否可以修改，或者这个缓冲区是否和文件相关联，是否需要同步保存到磁盘上。</p>
+<p><strong>窗口</strong> 是缓冲区上一层的视窗。如果你想同时查看几个文件或者查看同一文件的不同位置，那样你会需要窗口。</p>
+<p>请别把他们叫做_分屏<em>。你可以把一个窗口分割成两个，但是这并没有让这两个窗口完全</em>分离_。</p>
+<p>窗口可以水平或者竖直分割并且现有窗口的高度和宽度都是可以被调节设置的，因此，如果你需要多种窗口布局，请考虑使用标签。</p>
+<p><strong>标签页</strong> （标签）是窗口的集合。因此使用标签当你想使用多种窗口布局的时候。</p>
+<p>简单的说，如果你启动 Vim 的时候没有附带任何参数，你会得到一个包含着一个呈现一个缓冲区的窗口的标签。</p>
+<p>顺带提一下，缓冲区列表是全局可见的，你可以在任何标签中访问任何一个缓冲区。</p>
+<h2 id="已激活，已载入，已列出，已命名，缓冲区"><a href="#已激活，已载入，已列出，已命名，缓冲区" class="headerlink" title="已激活，已载入，已列出，已命名，缓冲区"></a>已激活，已载入，已列出，已命名，缓冲区</h2><p>用类似 <code>vim file1</code> 的命令启动 Vim 。这个文件的内容将会被加载到缓冲区中，你现在有一个<strong>已载入的缓冲区</strong>。如果你在 Vim 中保存这个文件，缓冲区内容将会被同步到磁盘上（写回文件中）。</p>
+<p>由于这个缓冲区也在一个窗口上显示，所以他也是一个<strong>已激活的缓冲区</strong>。如果你现在通过 <code>:e file2</code> 命令加载另一个文件，<code>file1</code> 将会变成一个<strong>隐藏的缓冲区</strong>，并且 <code>file2</code> 变成已激活缓冲区。</p>
+<p>使用 <code>:ls</code> 我们能够列出所有可以列出的缓冲区。插件缓冲区和帮助缓冲区通常被标记为不可以列出的缓冲区，因为那并不是你经常需要在编辑器中编辑的常规文件。通过 <code>:ls!</code> 命令可以显示被放入缓冲区列表的和未被放入列表的缓冲区。</p>
+<p><strong>未命名的缓冲区</strong>是一种没有关联特定文件的缓冲区，这种缓冲区经常被插件使用。比如 <code>:enew</code> 将会创建一个无名临时缓冲区。添加一些文本然后使用 <code>:w /tmp/foo</code> 将他写入到磁盘，这样这个缓冲区就会变成一个<strong>已命名的缓冲区</strong>。</p>
+<h2 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h2><p><a href="#缓冲区窗口标签">全局缓冲区列表</a>是 Vim 的特性。在这之前的 vi 中，仅仅只有参数列表，参数列表在 Vim 中依旧可以使用。</p>
+<p>每一个通过 shell 命令传递给 Vim 的文件名都被记录在一个参数列表中。可以有多个参数列表：默认情况下所有参数都被放在全局参数列表下，但是你可以使用 <code>:arglocal</code> 命令去创建一个新的本地窗口的参数列表。</p>
+<p>使用 <code>:args</code> 命令可以列出当前参数。使用 <code>:next</code>，<code>:previous</code>，<code>:first</code>，<code>:last</code> 命令可以在切换在参数列表中的文件。通过使用 <code>:argadd</code>，<code>:argdelete</code> 或者 <code>:args</code> 等命令加上一个文件列表可以改变参数列表。</p>
+<p>偏爱缓冲区列表还是参数列表完全是个人选择，我的印象中大多数人都是使用缓冲区列表的。</p>
+<p>然而参数列表在有些情况下被大量使用：批处理<br>使用 <code>:argdo</code>！ 一个简单的重构例子：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">args</span> **/*.[ch]</span><br><span class="line">:<span class="keyword">argdo</span> %s/foo/bar/ge | <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>这条命令将替换掉当前目录下以及当前目录的子目录中所有的 C 源文件和头文件中的“foo”，并用“bar”代替。</p>
+<p>相关帮助：<code>:h argument-list</code></p>
+<h2 id="按键映射"><a href="#按键映射" class="headerlink" title="按键映射"></a>按键映射</h2><p>使用 <code>:map</code> 命令家族你可以定义属于你自己的快捷键。该家族的每一个命令都限定在特定的模式下。从技术上来说 Vim 自带高达 12 中模式，其中 6 种可以被映射。另外一些命令作用于多种模式：</p>
+<table>
+<thead>
+<tr>
+<th>递归</th>
+<th>非递归</th>
+<th>模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:map</code></td>
+<td><code>:noremap</code></td>
+<td>normal, visual, operator-pending</td>
+</tr>
+<tr>
+<td><code>:nmap</code></td>
+<td><code>:nnoremap</code></td>
+<td>normal</td>
+</tr>
+<tr>
+<td><code>:xmap</code></td>
+<td><code>:xnoremap</code></td>
+<td>visual</td>
+</tr>
+<tr>
+<td><code>:cmap</code></td>
+<td><code>:cnoremap</code></td>
+<td>command-line</td>
+</tr>
+<tr>
+<td><code>:omap</code></td>
+<td><code>:onoremap</code></td>
+<td>operator-pending</td>
+</tr>
+<tr>
+<td><code>:imap</code></td>
+<td><code>:inoremap</code></td>
+<td>insert</td>
+</tr>
+</tbody>
+</table>
+<p>例如：这个自定义的快捷键只在普通模式下工作。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">nmap</span> <span class="symbol">&lt;space&gt;</span> :<span class="keyword">echo</span> <span class="string">"foo"</span><span class="symbol">&lt;cr&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>:nunmap &lt;space&gt;</code> 可以取消这个映射。</p>
+<p>对于更少数，不常见的模式（或者他们的组合），查看 <code>:h map-modes</code>。</p>
+<p>到现在为止还好，对新手而言有一个问题会困扰他们：<code>:nmap</code> 是<strong>递归执行</strong>的！结果是，右边执行可能的映射。</p>
+<p>你自定义了一个简单的映射去输出“Foo”：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">nmap</span> <span class="keyword">b</span> :<span class="keyword">echo</span> <span class="string">"Foo"</span><span class="symbol">&lt;cr&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是如果你想要映射 <code>b</code> （回退一个单词）的默认功能到一个键上呢？</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">nmap</span> <span class="keyword">a</span> <span class="keyword">b</span></span><br></pre></td></tr></table></figure>
+<p>如果你敲击<kbd>a</kbd>，我们期望着光标回退到上一个单词，但是实际情况是“Foo”被输出到命令行里！因为在右边，<code>b</code> 已经被映射到别的行为上了，换句话说就是 <code>:echo &quot;Foo&quot;&lt;cr&gt;</code>。</p>
+<p>解决此问题的正确方法是使用一种<em>非递归</em>的映射代替：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">nnoremap</span> <span class="keyword">a</span> <span class="keyword">b</span></span><br></pre></td></tr></table></figure>
+<p>经验法则：除非递归是必须的，否则总是使用非递归映射。</p>
+<p>通过不给一个右值来检查你的映射。比如<code>:nmap</code> 显示所以普通模式下的映射，<code>:nmap &lt;leader&gt;</code> 显示所有以 <code>&lt;leader&gt;</code> 键开头的普通模式下的映射。</p>
+<p>如果你想禁止用标准映射，把他们映射到特殊字符 <code>&lt;nop&gt;</code> 上，例如：<code>:noremap &lt;left&gt; &lt;nop&gt;</code>。</p>
+<p>相关帮助：</p>
+<pre><code>:h key-notation
+:h mapping
+:h 05.3
+</code></pre><h2 id="映射占位符"><a href="#映射占位符" class="headerlink" title="映射占位符"></a>映射占位符</h2><p>映射占位符（Leader 键）本身就是一个按键映射，默认为 <kbd>\</kbd>。我们可以通过在 <code>map</code> 中调用 <code>&lt;leader&gt;</code> 来为把它添加到其他按键映射中。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;leader&gt;</span>h :<span class="keyword">helpgrep</span><span class="symbol">&lt;space&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，我们只需要先按 <kbd>\</kbd> 然后连续按 <kbd>\h</kbd> 就可以激活这个映射 <code>:helpgrep&lt;space&gt;</code>。如果你想通过先按 <kbd>空格</kbd> 键来触发，只需要这样做：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mapleader = <span class="string">' '</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;leader&gt;</span>h :<span class="keyword">helpgrep</span><span class="symbol">&lt;space&gt;</span></span><br></pre></td></tr></table></figure>
+<p>另外，还有一个叫 <code>&lt;localleader&gt;</code> 的，可以把它理解为局部环境中的 <code>&lt;leader&gt;</code>，默认值依然为 <kbd>\</kbd>。当我们需要只对某一个条件下（比如，特定文件类型的插件）的缓冲区设置特别的 <code>&lt;leader&gt;</code> 键，那么我们就可以通过修改当前环境下的 <code>&lt;localleader&gt;</code> 来实现。</p>
+<p><strong>注意</strong>：如果你打算设置 Leader 键，请确保在设置按键映射之前，先设置好 Leader 键。如果你先设置了含有 Leader 键的映射，然后又修改了 Leader 键，那么之前映射内的 Leader 键是不会因此而改变的。你可以通过执行 <code>:nmap &lt;leader&gt;</code> 来查看普通模式中已绑定给 Leader 键的所有映射。</p>
+<p>请参阅 <code>:h mapleader</code> 与 <code>:h maploacalleader</code> 来获取更多帮助。</p>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>寄存器就是存储文本的地方。我们常用的「复制」操作就是把文本存储到寄存器，「 粘贴」 操作就是把文本从寄存器中读出来。顺便，在 Vim 中复制的快捷键是 <kbd>y</kbd>，粘贴的快捷键是 <kbd>p</kbd>。</p>
+<p>Vim 为我们提供了如下的寄存器：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>标识</th>
+<th>读写者</th>
+<th>是否为只读</th>
+<th>包含的字符来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unnamed</td>
+<td><code>&quot;</code></td>
+<td>vim</td>
+<td>否</td>
+<td>最近一次的复制或删除操作 (<code>d</code>, <code>c</code>, <code>s</code>, <code>x</code>, <code>y</code>)</td>
+</tr>
+<tr>
+<td>Numbered</td>
+<td><code>0</code>至<code>9</code></td>
+<td>vim</td>
+<td>否</td>
+<td>寄存器 <code>0</code>: 最近一次复制。寄存器 <code>1</code>: 最近一次删除。寄存器 <code>2</code>: 倒数第二次删除，以此类推。对于寄存器 <code>1</code> 至 <code>9</code>，他们其实是只读的最多包含 9 个元素的队列。这里的队列即为数据类型 <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type" target="_blank" rel="noopener">queue</a>)</td>
+</tr>
+<tr>
+<td>Small delete</td>
+<td><code>-</code></td>
+<td>vim</td>
+<td>否</td>
+<td>最近一次行内删除</td>
+</tr>
+<tr>
+<td>Named</td>
+<td><code>a</code>至<code>z</code>, <code>A</code>至<code>Z</code></td>
+<td>用户</td>
+<td>否</td>
+<td>如果你通过复制操作存储文本至寄存器 <code>a</code>，那么 <code>a</code> 中的文本就会被完全覆盖。如果你存储至 <code>A</code>，那么会将文本添加给寄存器 <code>a</code>，不会覆盖之前已有的文本</td>
+</tr>
+<tr>
+<td>Read-only</td>
+<td><code>:</code>与<code>.</code>和<code>%</code></td>
+<td>vim</td>
+<td>是</td>
+<td><code>:</code>: 最近一次使用的命令，<code>.</code>: 最近一次添加的文本，<code>%</code>: 当前的文件名</td>
+</tr>
+<tr>
+<td>Alternate buffer</td>
+<td><code>#</code></td>
+<td>vim</td>
+<td>否</td>
+<td>大部分情况下，这个寄存器是当前窗口中，上一次访问的缓冲区。请参阅 <code>:h alternate-file</code> 来获取更多帮助</td>
+</tr>
+<tr>
+<td>Expression</td>
+<td><code>=</code></td>
+<td>用户</td>
+<td>否</td>
+<td>复制 VimL 代码时，这个寄存器用于存储代码片段的执行结果。比如，在插入模式下复制 <code>&lt;c-r&gt;=5+5&lt;cr&gt;</code>，那么这个寄存器就会存入 10</td>
+</tr>
+<tr>
+<td>Selection</td>
+<td><code>+</code>和<code>*</code></td>
+<td>vim</td>
+<td>否</td>
+<td><code>*</code> 和 <code>+</code> 是 <a href="#剪贴板">剪贴板</a> 寄存器</td>
+</tr>
+<tr>
+<td>Drop</td>
+<td><code>~</code></td>
+<td>vim</td>
+<td>是</td>
+<td>最后一次拖拽添加至 Vim 的文本（需要 “+dnd” 支持，暂时只支持 GTK GUI。请参阅 <code>:help dnd</code> 及 <code>:help quote~</code>）</td>
+</tr>
+<tr>
+<td>Black hole</td>
+<td><code>_</code></td>
+<td>vim</td>
+<td>否</td>
+<td>一般称为黑洞寄存器。对于当前操作，如果你不希望在其他寄存器中保留文本，那就在命令前加上 <code>_</code>。比如，<code>&quot;_dd</code> 命令不会将文本放到寄存器 <code>&quot;</code>、<code>1</code>、<code>+</code> 或 <code>*</code> 中</td>
+</tr>
+<tr>
+<td>Last search pattern</td>
+<td><code>/</code></td>
+<td>vim</td>
+<td>否</td>
+<td>最近一次通过 <code>/</code>、<code>?</code> 或 <code>:global</code> 等命令调用的匹配条件</td>
+</tr>
+</tbody>
+</table>
+<p>只要不是只读的寄存器，用户都有权限修改它的内容，比如：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">let</span> @/ = <span class="string">'register'</span></span><br></pre></td></tr></table></figure>
+<p>这样，我们按 <kbd>n</kbd> 的时候就会跳转到单词”register” 出现的地方。</p>
+<p>有些时候，你的操作可能已经修改了寄存器，而你没有察觉到。请参阅 <code>:h registers</code> 获取更多帮助。</p>
+<p>上面提到过，复制的命令是 <kbd>y</kbd>，粘贴的命令是 <kbd>p</kbd> 或者 <kbd>P</kbd>。但请注意，Vim 会区分「字符选取」与「行选取」。请参阅 <code>:h linewise</code> 获取更多帮助。</p>
+<p><strong>行选取</strong>：<br>命令 <code>yy</code> 或 <code>Y</code> 都是复制当前行。这时移动光标至其他位置，按下 <code>p</code> 就可以在光标下方粘贴复制的行，按下 <code>P</code> 就可以在光标上方粘贴至复制的行。</p>
+<p><strong>字符选取</strong>：<br>命令 <code>0yw</code> 可以复制第一个单词。这时移动光标至其他位置，按下 <code>p</code> 就可以在当前行、光标后的位置粘贴单词，按下 <code>P</code> 就可以在当前行、光标前的位置粘贴单词。</p>
+<p><strong>将文本存到指定的寄存器中</strong>：<br>命令 <code>&quot;aY</code> 可以将当前行复制，并存储到寄存器 <code>a</code> 中。这时移动光标至其他位置，通过命令 <code>&quot;AY</code> 就可以把这一行的内容扩展到寄存器 <code>a</code> 中，而之前存储的内容也不会丢失。</p>
+<p>为了便于理解和记忆，建议大家现在就试一试上面提到的这些操作。操作过程中，你可以随时通过 <code>:reg</code> 来查看寄存器的变化。</p>
+<p><strong>有趣的是</strong>：<br>在 Vim 中，<code>y</code> 是复制命令，源于单词 “yanking”。而在 Emacs 中，”yanking” 代表的是粘贴（或者说，重新插入刚才删掉的内容），而并不是复制。</p>
+<h2 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h2><p>范围 (Ranges) 其实很好理解，但很多 Vim 用户的理解不到位。</p>
+<ul>
+<li>很多命令都可以加一个数字，用于指明操作范围</li>
+<li>范围可以是一个行号，用于指定某一行</li>
+<li>范围也可以是一对通过 <code>,</code> 或 <code>;</code> 分割的行号</li>
+<li>大部分命令，默认只作用于当前行</li>
+<li>只有 <code>:write</code> 和 <code>:global</code> 是默认作用于所有行的</li>
+</ul>
+<p>范围的使用是十分直观的。以下为一些例子（其中，<code>:d</code> 为 <code>:delete</code> 的缩写）：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作的行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:d</code></td>
+<td>当前行</td>
+</tr>
+<tr>
+<td><code>:.d</code></td>
+<td>当前行</td>
+</tr>
+<tr>
+<td><code>:1d</code></td>
+<td>第一行</td>
+</tr>
+<tr>
+<td><code>:$d</code></td>
+<td>最后一行</td>
+</tr>
+<tr>
+<td><code>:1,$d</code></td>
+<td>所有行</td>
+</tr>
+<tr>
+<td><code>:%d</code></td>
+<td>所有行（这是 <code>1,$</code> 的语法糖）</td>
+</tr>
+<tr>
+<td><code>:.,5d</code></td>
+<td>当前行至第 5 行</td>
+</tr>
+<tr>
+<td><code>:,5d</code></td>
+<td>同样是当前行至第 5 行</td>
+</tr>
+<tr>
+<td><code>:,+3d</code></td>
+<td>当前行及接下来的 3 行</td>
+</tr>
+<tr>
+<td><code>:1,+3d</code></td>
+<td>第一行至当前行再加 3 行</td>
+</tr>
+<tr>
+<td><code>:,-3d</code></td>
+<td>当前行及向上的 3 行（Vim 会弹出提示信息，因为这是一个保留的范围）</td>
+</tr>
+<tr>
+<td><code>:3,&#39;xdelete</code></td>
+<td>第三行至<a href="#标注">标注</a> 为 x 的那一行</td>
+</tr>
+<tr>
+<td><code>:/^foo/,$delete</code></td>
+<td>当前行以下，以字符 “foo” 开头的那一行至结尾</td>
+</tr>
+<tr>
+<td><code>:/^foo/+1,$delete</code></td>
+<td>当前行以下，以字符 “foo” 开头的那一行的下一行至结尾</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意的是，<code>;</code> 也可以用于表示范围。区别在于，<code>a,b</code> 的 <code>b</code> 是以当前行作为参考的。而 <code>a;b</code> 的 <code>b</code> 是以 <code>a</code> 行作为参考的。举个例子，现在你的光标在第 5 行。这时 <code>:1,+1d</code> 会删除第 1 行至第 6 行，而 <code>:1;+1d</code> 会删除第 1 行和第 2 行。</p>
+<p>如果你想设置多个寻找条件，只需要在条件前加上 <code>/</code>，比如：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:/foo//bar//quux/d</span><br></pre></td></tr></table></figure>
+<p>这就会删除当前行之后的某一行。定位方式是，先在当前行之后寻找第一个包含 “foo” 字符的那一行，然后在找到的这一行之后寻找第一个包含 “bar” 字符的那一行，然后再在找到的这一行之后寻找第一个包含 “quux” 的那一行。删除的就是最后找到的这一行。</p>
+<p>有时，Vim 会在命令前自动添加范围。举个例子，如果你先通过 <code>V</code> 命令进入行选取模式，选中一些行后按下 <code>:</code> 进入命令模式，这时候你会发现 Vim 自动添加了 <code>&#39;&lt;,&#39;&gt;</code> 范围。这表示，接下来的命令会使用之前选取的行号作为范围。但如果后续命令不支持范围，Vim 就会报错。为了避免这样的情况发生，有些人会设置这样的按键映射：<code>:vnoremap foo :&lt;c-u&gt;command</code>，组合键 <kbd>Ctrl + u</kbd> 可以清除当前命令行中的内容。</p>
+<p>另一个例子是在普通模式中按下 <code>!!</code>，命令行中会出现 <code>:.!</code>。如果这时你如果输入一个外部命令，那么当前行的内容就会被这个外部命令的输出替换。你也可以通过命令 <code>:?^$?+1,/^$/-1!ls</code> 把当前段落的内容替换成外部命令 <code>ls</code> 的输出，原理是向前和向后各搜索一个空白行，删除这两个空白行之间的内容，并将外部命令 <code>ls</code> 的输出放到这两个空白行之间。</p>
+<p>请参阅以下两个命令来获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:h cmdline-ranges</span><br><span class="line">:h <span class="number">10.3</span></span><br></pre></td></tr></table></figure>
+<h2 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h2><p>你可以使用标注功能来标记一个位置，也就是记录文件某行的某个位置。</p>
+<table>
+<thead>
+<tr>
+<th>标注</th>
+<th>设置者</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a</code>-<code>z</code></td>
+<td>用户</td>
+<td>仅对当前的一个文件生效，也就意味着只可以在当前文件中跳转</td>
+</tr>
+<tr>
+<td><code>A</code>-<code>Z</code></td>
+<td>用户</td>
+<td>全局标注，可以作用于不同文件。大写标注也称为「文件标注」。跳转时有可能会切换到另一个缓冲区</td>
+</tr>
+<tr>
+<td><code>0</code>-<code>9</code></td>
+<td>viminfo</td>
+<td><code>0</code> 代表 viminfo 最后一次被写入的位置。实际使用中，就代表 Vim 进程最后一次结束的位置。<code>1</code> 代表 Vim 进程倒数第二次结束的位置，以此类推</td>
+</tr>
+</tbody>
+</table>
+<p>如果想跳转到指定的标注，你可以先按下 <code>&#39;</code>、<code>g&#39;</code>、<code>\`</code> 或 <code>g\`</code> 然后按下标注名。</p>
+<p>如果你想定义当前文件中的标注，可以先按下 <code>m</code> 再按下标注名。比如，按下 <code>mm</code> 就可以把当前位置标注为 <code>m</code>。在这之后，如果你的光标切换到了文件的其他位置，只需要通过 <code>&#39;m</code> 或者 <code>\</code>m<code>即可回到刚才标注的行。区别在于，</code>‘m<code>会跳转回被标记行的第一个非空字符，而</code>`m<code>会跳转回被标记行的被标记列。根据 viminfo 的设置，你可以在退出 Vim 的时候保留小写字符标注。请参阅</code>:h viminfo-‘` 来获取更多帮助。</p>
+<p>如果你想定义全局的标注，可以先按下 <code>m</code> 再按下大写英文字符。比如，按下 <code>mM</code> 就可以把当前文件的当前位置标注为 <code>M</code>。在这之后，就算你切换到其他的缓冲区，依然可以通过 <code>&#39;M</code> 或 <code>\</code>M` 跳转回来。</p>
+<p>关于跳转，还有以下的方式：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>跳转至</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#39;[</code> 与 <code>`[</code></td>
+<td>上一次修改或复制的第一行或第一个字符</td>
+</tr>
+<tr>
+<td><code>&#39;]</code> 与 <code>`]</code></td>
+<td>上一次修改或复制的最后一行或最后一个字符</td>
+</tr>
+<tr>
+<td><code>&#39;&lt;</code> 与 <code>`&lt;</code></td>
+<td>上一次在可视模式下选取的第一行或第一个字符</td>
+</tr>
+<tr>
+<td><code>&#39;&gt;</code> 与 <code>`&gt;</code></td>
+<td>上一次在可视模式下选取的最后一行或最后一个字符</td>
+</tr>
+<tr>
+<td><code>&#39;&#39;</code> 与 <code>`&#39;</code></td>
+<td>上一次跳转之前的光标位置</td>
+</tr>
+<tr>
+<td><code>&#39;&quot;</code> 与 <code>`&quot;</code></td>
+<td>上一次关闭当前缓冲区时的光标位置</td>
+</tr>
+<tr>
+<td><code>&#39;^</code> 与 <code>`^</code></td>
+<td>上一次插入字符后的光标位置</td>
+</tr>
+<tr>
+<td><code>&#39;.</code> 与 <code>`.</code></td>
+<td>上一次修改文本后的光标位置</td>
+</tr>
+<tr>
+<td><code>&#39;(</code> 与 <code>`(</code></td>
+<td>当前句子的开头</td>
+</tr>
+<tr>
+<td><code>&#39;)</code> 与 <code>`)</code></td>
+<td>当前句子的结尾</td>
+</tr>
+<tr>
+<td><code>&#39;{</code> 与 <code>`{</code></td>
+<td>当前段落的开头</td>
+</tr>
+<tr>
+<td><code>&#39;}</code> 与 <code>`}</code></td>
+<td>当前段落的结尾</td>
+</tr>
+</tbody>
+</table>
+<p>标注也可以搭配 <a href="#范围">范围</a> 一起使用。前面提到过，如果你在可视模式下选取一些文本，然后按下 <code>:</code>，这时候你会发现命令行已经被填充了 <code>:&#39;&lt;,&#39;&gt;</code>。对照上面的表格，现在你应该明白了，这段代表的就是可视模式下选取的范围。</p>
+<p>请使用 <code>:marks</code> 命令来显示所有的标注，参阅 <code>:h mark-motions</code> 来获取关于标注的更多帮助。</p>
+<h2 id="补全"><a href="#补全" class="headerlink" title="补全"></a>补全</h2><p>Vim 在插入模式中为我们提供了多种补全方案。如果有多个补全结果，Vim 会弹出一个菜单供你选择。</p>
+<p>常见的补全有标签、项目中引入的模块或库中的方法名、文件名、字典及当前缓冲区的字段。</p>
+<p>针对不同的补全方案，Vim 为我们提供了不同的按键映射。这些映射都是在<strong>插入模式中</strong>通过 <kbd>Ctrl</kbd> + <kbd>x</kbd> 来触发：</p>
+<table>
+<thead>
+<tr>
+<th>映射</th>
+<th>类型</th>
+<th>帮助文档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-l&gt;</code></td>
+<td>整行</td>
+<td><code>:h i^x^l</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-n&gt;</code></td>
+<td>当前缓冲区中的关键字</td>
+<td><code>:h i^x^n</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-k&gt;</code></td>
+<td>字典（请参阅 <code>:h &#39;dictionary&#39;</code>）中的关键字</td>
+<td><code>:h i^x^k</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-t&gt;</code></td>
+<td>同义词字典（请参阅 <code>:h &#39;thesaurus&#39;</code>）中的关键字</td>
+<td><code>:h i^x^t</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-i&gt;</code></td>
+<td>当前文件以及包含的文件中的关键字</td>
+<td><code>:h i^x^i</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-]&gt;</code></td>
+<td>标签</td>
+<td><code>:h i^x^]</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-f&gt;</code></td>
+<td>文件名</td>
+<td><code>:h i^x^f</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-d&gt;</code></td>
+<td>定义或宏定义</td>
+<td><code>:h i^x^d</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-v&gt;</code></td>
+<td>Vim 命令</td>
+<td><code>:h i^x^v</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-u&gt;</code></td>
+<td>用户自定义补全（通过 <code>&#39;completefunc&#39;</code> 定义）</td>
+<td><code>:h i^x^u</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;&lt;c-o&gt;</code></td>
+<td>Omni Completion（通过 <code>&#39;omnifunc&#39;</code> 定义）</td>
+<td><code>:h i^x^o</code></td>
+</tr>
+<tr>
+<td><code>&lt;c-x&gt;s</code></td>
+<td>拼写建议</td>
+<td><code>:h i^Xs</code></td>
+</tr>
+</tbody>
+</table>
+<p>尽管用户自定义补全与 Omni Completion 是不同的，但他们做的事情基本一致。共同点在于，他们都是一个监听当前光标位置的函数，返回值为一系列的补全建议。用户自定义补全是由用户定义的，基于用户的个人用途，因此你可以根据自己的喜好和需求随意定制。而 Omni Completion 是针对文件类型的补全，比如在 C 语言中补全一个结构体（struct）的成员（members），或者补全一个类的方法，因而它通常都是由文件类型插件设置和调用的。</p>
+<p>如果你设置了 <code>&#39;complete&#39;</code> 选项，那么你就可以在一次操作中采用多种补全方案。这个选项默认包含了多种可能性，因此请按照自己的需求来配置。你可以通过 <code>&lt;c-n&gt;</code> 来调用下一个补全建议，或通过 <code>&lt;c-p&gt;</code> 来调用上一个补全建议。当然，这两个映射同样可以直接调用补全函数。请参阅 <code>:h i^n</code> 与 <code>:h &#39;complete&#39;</code> 来获得更多帮助。</p>
+<p>如果你想配置弹出菜单的行为，请一定要看一看 <code>:h &#39;completeopt&#39;</code> 这篇帮助文档。默认的配置已经不错了，但我个人（原作者）更倾向于把 “noselect” 加上。</p>
+<p>请参阅以下文档获取更多帮助：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:h ins-completion</span><br><span class="line">:h popupmenu-<span class="built_in">keys</span></span><br><span class="line">:h <span class="keyword">new</span>-omni-completion</span><br></pre></td></tr></table></figure></p>
+<h2 id="动作，操作符，文本对象"><a href="#动作，操作符，文本对象" class="headerlink" title="动作，操作符，文本对象"></a>动作，操作符，文本对象</h2><p><strong>动作</strong>也就是指移动光标的操作，你肯定很熟悉 <code>h</code>、<code>j</code>、<code>k</code> 和 <code>l</code>，以及 <code>w</code> 和 <code>b</code>。但其实，<code>/</code> 也是一个动作。他们都可以搭配数字使用，比如 <code>2?the&lt;cr&gt;</code> 可以将光标移动到倒数第二个 “the” 出现的位置。</p>
+<p>以下会列出一些常用的动作。你也可以通过 <code>:h navigation</code> 来获取更多的帮助。</p>
+<p><strong>操作符</strong>是对某个区域文本执行的操作。比如，<code>d</code>、<code>~</code>、<code>gU</code> 和 <code>&gt;</code> 都是操作符。这些操作符既可以在普通模式下使用，也可以在可视模式下使用。在普通模式中，顺序是先按操作符，再按动作指令，比如 <code>&gt;j</code>。在可是模式中，选中区域后直接按操作符就可以，比如 <code>Vjd</code>。</p>
+<p>与动作一样，操作符也可以搭配数字使用，比如 <code>2gUw</code> 可以将当前单词以及下一个单词转成大写。由于动作和操作符都可以搭配数字使用，因此 <code>2gU2w</code> 与执行两次 <code>gU2w</code> 效果是相同的。</p>
+<p>请参阅 <code>:h operator</code> 来查看所有的操作符。你也可以通过 <code>:set tildeop</code> 命令把 <code>~</code> 也变成一个操作符</p>
+<p>值得注意的是，动作是单向的，而<strong>文本对象</strong>是双向的。文本对象不仅作用于符号（比如括号、中括号和大括号等）标记的范围内，也作用于整个单词、整个句子等其他情况。</p>
+<p>文本对象不能用于普通模式中移动光标的操作，因为光标还没有智能到可以向两个方向同时跳转。但这个功能可以在可视模式中实现，因为在对象的一端选中的情况下，光标只需要跳转到另一端就可以了。</p>
+<p>文本对象操作一般用 <code>i</code> 或 <code>a</code> 加上对象标识符操作，其中 <code>i</code> 表示在对象内（英文 inner）操作，<code>a</code> 表示对整个对象（英文 around）操作，这时开头和结尾的空格都会被考虑进来。举个例子，<code>diw</code> 可以删除当前单词，<code>ci(</code> 可以改变括号中的内容。</p>
+<p>文本对象同样可以与数字搭配使用。比如，像 <code>(((  )))</code> 这样的文本，假如光标位于最内层的括号上或最内层的括号内，那么 <code>d2a(</code> 将会删除从最内层开始的两对括号，以及他们之间的所有内容。其实，<code>d2a(</code> 这个操作等同于 <code>2da(</code>。在 Vim 的命令中，如果有两处都可以接收数字作为参数，那么最终结果就等同于两个数字相乘。在这里，<code>d</code> 与 <code>a(</code> 都是可以接收参数的，一个参数是 1，另一个是 2，我们可以把它们相乘然后放到最前面。</p>
+<p>请参阅 <code>:h text-objects</code> 来获取更多关于文本对象的帮助。</p>
+<h2 id="自动命令"><a href="#自动命令" class="headerlink" title="自动命令"></a>自动命令</h2><p>在特定的情况下，Vim 会传出事件。如果你想针对这些事件执行回调方法，那么就需要用到自动命令这个功能。</p>
+<p>如果没有了自动命令，那你基本上是用不了 Vim 的。自动命令一直都在执行，只是很多时候你没有注意到。不信的话，可以执行命令 <code>:au</code> ，不要被结果吓到，这些是当前有效的所有自动命令。</p>
+<p>请使用 <code>:h {event}</code> 来查看 Vim 中所有事件的列表，你也可以参考 <code>:h autocmd-events-abc</code> 来获取关于事件的更多帮助。</p>
+<p>一个很常用的例子，就是针对文件类型执行某些设置：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">autocmd</span> FileType <span class="keyword">ruby</span> <span class="keyword">setlocal</span> <span class="built_in">shiftwidth</span>=<span class="number">2</span> softtabstop=<span class="number">2</span> comments-=:#</span><br></pre></td></tr></table></figure>
+<p>但是缓冲区是如何知道当前的文件中包含 Ruby 代码呢？这其实是另一个自动命令检测的到的，然后把文件类型设置成为 Ruby，这样就触发了上面的 <code>FileType</code> 事件。</p>
+<p>在配置 vimrc 的时候，一般第一行加进去的就是 <code>filetype on</code>。这就意味着，Vim 启动时会读取 <code>filetype.vim</code> 文件，然后根据文件类型来触发相应的自动命令。</p>
+<p>如果你勇于尝试，可以查看下 <code>:e $VIMRUNTIME/filetype.vim</code>，然后在输出中搜索 “Ruby”。这样，你就会发现其实 Vim 只是通过文件扩展名 <code>.rb</code> 判断某个文件是不是 Ruby 的。</p>
+<p><strong>注意</strong>：对于相同事件，如果有多个自动命令，那么自动命令会按照定义时的顺序执行。通过 <code>:au</code> 就可以查看它们的执行顺序。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">au</span> BufNewFile,BufRead *.rb,*.rbw <span class="keyword">setf</span> <span class="keyword">ruby</span></span><br></pre></td></tr></table></figure>
+<p><code>BufNewFile</code> 与 <code>BufRead</code> 事件是被写在 Vim 源文件中的。因此，每当你通过 <code>:e</code> 或者类似的命令打开文件，这两个事件都会触发。然后，就是读取 <code>filetype.vim</code> 文件来判断打开的文件类型。</p>
+<p>简单来说，事件和自动命令在 Vim 中的应用十分广泛。而且，Vim 为我们留出了一些易用的接口，方便用户配置适合自己的事件驱动回调。</p>
+<p>请参阅 <code>:h autocommand</code> 来获取更多帮助</p>
+<h2 id="变更历史，跳转历史"><a href="#变更历史，跳转历史" class="headerlink" title="变更历史，跳转历史"></a>变更历史，跳转历史</h2><p>在 Vim 中，用户最近 100 次的文字改动都会被保存在<strong>变更历史</strong>中。如果在同一行有多个小改动，那么 Vim 会把它们合并成一个。尽管内容改动会合并，但作用的位置还是会只记录下最后一次改动的位置。</p>
+<p>在你移动光标或跳转的时候，每一次的移动或跳转前的位置会被记录到<strong>跳转历史</strong>中。类似地，跳转历史也可以最多保存 100 条记录。对于每个窗口，跳转记录是独立的。但当你分离窗口时（比如使用 <code>:split</code> 命令），跳转历史会被复制过去。</p>
+<p>Vim 中的跳转命令，包括 <code>&#39;</code>、<code>`</code>、<code>G</code>、<code>/</code>、<code>?</code>、<code>n</code>、<code>N</code>、<code>%</code>、<code>(</code>、<code>)</code>、<code>[[</code>、<code>]]</code>、<code>{</code>、<code>}</code>、<code>:s</code>、<code>:tag</code>、<code>L</code>、<code>M</code>、<code>H</code> 以及开始编辑一个新文件的命令。</p>
+<table>
+<thead>
+<tr>
+<th>列表</th>
+<th>显示所有条目</th>
+<th>跳转到上一个位置</th>
+<th>跳转到下一个位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跳转历史</td>
+<td><code>:jumps</code></td>
+<td><code>[count]&lt;c-o&gt;</code></td>
+<td><code>[count]&lt;c-i&gt;</code></td>
+</tr>
+<tr>
+<td>变更历史</td>
+<td><code>:changes</code></td>
+<td><code>[count]g;</code></td>
+<td><code>[count]g,</code></td>
+</tr>
+</tbody>
+</table>
+<p>如果你执行第二列的命令显示所有条目，这时 Vim 会用 <code>&gt;</code> 标记来为你指示当前位置。通常这个标记位于 1 的下方，也就代表最后一次的位置。</p>
+<p>如果你希望关闭 Vim 之后还保留这些条目，请参阅 <code>:h viminfo-&#39;</code> 来获取更多帮助。</p>
+<p><strong>注意</strong>：上面提到过，最后一次跳转前的位置也会记录在<a href="#标注">标注</a>中，也可以通过连按 <kbd>``</kbd> 或 <kbd>‘’</kbd> 跳转到那个位置</p>
+<p>请参阅以下两个命令来获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:h changelist</span><br><span class="line">:h jumplist</span><br></pre></td></tr></table></figure>
+<h2 id="内容变更历史记录"><a href="#内容变更历史记录" class="headerlink" title="内容变更历史记录"></a>内容变更历史记录</h2><p>Vim 会记录文本改变之前的状态。因此，你可以使用「撤销」操作 <kbd>u</kbd> 来取消更改，也可以通过「重做」操作 <kbd>Ctrl + r</kbd> 来恢复更改。</p>
+<p>值得注意的是，Vim 采用 <a href="https://en.wikipedia.org/wiki/Tree_(data_structure" target="_blank" rel="noopener">tree</a>) 数据结构来存储内容变更的历史记录，而不是采用 <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type" target="_blank" rel="noopener">queue</a>)。你的每次改动都会成为存储为树的节点。而且，除了第一次改动（根节点），之后的每次改动都可以找到一个对应的父节点。每一个节点都会记录改动的内容和时间。其中，「分支」代表从任一节点到根节点的路径。当你进行了撤销操作，然后又输入了新的内容，这时候就相当于创建了分支。这个原理和 git 中的 branch（分支）十分类似。</p>
+<p>考虑以下这一系列按键操作：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ifoo<span class="symbol">&lt;esc&gt;</span></span><br><span class="line">obar<span class="symbol">&lt;esc&gt;</span></span><br><span class="line">obaz<span class="symbol">&lt;esc&gt;</span></span><br><span class="line"><span class="keyword">u</span></span><br><span class="line">oquux<span class="symbol">&lt;exc&gt;</span></span><br></pre></td></tr></table></figure>
+<p>那么现在，Vim 中会显示三行文本，分别是 “foo”、”bar” 和 “quux”。这时候，存储的树形结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     foo(1)</span><br><span class="line">       /</span><br><span class="line">    bar(2)</span><br><span class="line">   /      \</span><br><span class="line">baz(3)   quux(4)</span><br></pre></td></tr></table></figure>
+<p>这个树形结构共包含四次改动，括号中的数字就代表时间顺序。</p>
+<p>现在，我们有两种方式遍历这个树结构。一种叫「按分支遍历」，一种叫「按时间遍历」。</p>
+<p>撤销 <kbd>u</kbd> 与重做 <kbd>Ctrl + r</kbd> 操作是按分支遍历。对于上面的例子，现在我们有三行字符。这时候按 <kbd>u</kbd> 会回退到 “bar” 节点，如果再按一次 <kbd>u</kbd> 则会回退到 “foo” 节点。这时，如果我们按下 <kbd>Ctrl + r</kbd> 就会前进至 “bar” 节点，再按一次就回前进至 “quux” 节点。在这种方式下，我们无法访问到兄弟节点（即 “baz” 节点）。</p>
+<p>与之对应的是按时间遍历，对应的按键是 <code>g-</code> 和 <code>g+</code>。对于上面的例子，按下 <code>g-</code> 会首先回退到 “baz” 节点。再次按下 <code>g-</code> 会回退到 “bar” 节点。</p>
+<table>
+<thead>
+<tr>
+<th>命令/按键</th>
+<th>执行效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[count]u</code> 或 <code>:undo [count]</code></td>
+<td>回退到 <code>[count]</code> 次改动之前</td>
+</tr>
+<tr>
+<td><code>[count]&lt;c-r&gt;</code> 或 <code>:redo [count]</code></td>
+<td>重做 <code>[count]</code> 次改动</td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>回退至最新的改动</td>
+</tr>
+<tr>
+<td><code>[count]g-</code> 或 <code>:earlier [count]?</code></td>
+<td>根据时间回退到 <code>[count]</code> 次改动之前。”?” 为 “s”、”m”、”h”、”d” 或 “f”之一。例如，<code>:earlier 2d</code> 会回退到两天之前。<code>:earlier 1f</code> 则会回退到最近一次文件保存时的内容</td>
+</tr>
+<tr>
+<td><code>[count]g+</code> 或 <code>:later [count]?</code></td>
+<td>类似 <code>g-</code>，但方向相反</td>
+</tr>
+</tbody>
+</table>
+<p>内容变更记录会储存在内存中，当 Vim 退出时就会清空。如果需要持久化存储内容变更记录，请参阅<a href="#备份文件交换文件撤销文件以及viminfo文件的处理">备份文件，交换文件，撤销文件以及viminfo文件的处理</a>章节的内容。</p>
+<p>如果你觉得这一部分的内容难以理解，请参阅 <a href="https://github.com/mbbill/undotree" target="_blank" rel="noopener">undotree</a>，这是一个可视化管理内容变更历史记录的插件。类似的还有 <a href="https://github.com/simnalamburt/vim-mundo" target="_blank" rel="noopener">vim-mundo</a>。</p>
+<p>请参阅以下链接获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:h <span class="keyword">undo</span>.txt</span><br><span class="line">:h usr_32</span><br></pre></td></tr></table></figure>
+<h2 id="全局位置信息表，局部位置信息表"><a href="#全局位置信息表，局部位置信息表" class="headerlink" title="全局位置信息表，局部位置信息表"></a>全局位置信息表，局部位置信息表</h2><p>在某一个动作返回一系列「位置」的时候，我们可以利用「全局位置信息表」和「局部位置信息表」来存储这些位置信息，方便以后跳转回对应的位置。每一个存储的位置包括文件名、行号和列号。</p>
+<p>比如，编译代码是出现错误，这时候我们就可以把错误的位置直接显示在全局位置信息表，或者通过外部抓取工具使位置显示在局部位置信息表中。</p>
+<p>尽管我们也可以把这些信息显示到一个空格缓冲区中，但用这两个信息表显示的好处在于接口调用很方便，而且也便于浏览输出。</p>
+<p>Vim 中，全局位置信息表只能有一个，但每一个窗口都可以有自己的局部位置信息表。这两个信息表的外观看上去很类似，但在操作上会稍有不同。</p>
+<p>以下为两者的操作比较：</p>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>全局位置信息表</th>
+<th>局部位置信息表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>打开窗口</td>
+<td><code>:copen</code></td>
+<td><code>:lopen</code></td>
+</tr>
+<tr>
+<td>关闭窗口</td>
+<td><code>:cclose</code></td>
+<td><code>:lclose</code></td>
+</tr>
+<tr>
+<td>下一个条目</td>
+<td><code>:cnext</code></td>
+<td><code>:lnext</code></td>
+</tr>
+<tr>
+<td>上一个条目</td>
+<td><code>:cprevious</code></td>
+<td><code>:lprevious</code></td>
+</tr>
+<tr>
+<td>第一个条目</td>
+<td><code>:cfirst</code></td>
+<td><code>:lfirst</code></td>
+</tr>
+<tr>
+<td>最后一个条目</td>
+<td><code>:clast</code></td>
+<td><code>:llast</code></td>
+</tr>
+</tbody>
+</table>
+<p>请参阅 <code>:h :cc</code> 以及底下的内容，来获取更多命令的帮助。</p>
+<p><strong>应用实例</strong>：<br>如果我们想用 <code>grep</code> 递归地在当前文件夹中寻找某个关键词，然后把输出结果放到全局位置信息表中，只需要这样：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">let</span> &amp;grepprg = <span class="string">'grep -Rn $* .'</span></span><br><span class="line">:grep! foo</span><br><span class="line">&lt;<span class="keyword">grep</span> output - hit enter&gt;</span><br><span class="line">:<span class="keyword">copen</span></span><br></pre></td></tr></table></figure>
+<p>执行了上面的代码，你就能看到所有包含字符串 “foo” 的文件名以及匹配到的相关字段都会显示在全局位置信息表中。</p>
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p>你可以在 Vim 中录制一系列按键，并把他们存储到<a href="#寄存器">寄存器</a>中。对于一些需要临时使用多次的一系列操作，把它们作为宏保存起来会显著地提升效率。对于一些复杂的操作，建议使用 Vim 脚本来实现。</p>
+<ul>
+<li>首先，按下 <kbd>q</kbd>，然后按下你想要保存的寄存器，任何小写字母都可以。比如我们来把它保存到 <code>q</code> 这个寄存器中。按下 <code>qq</code>，你会发现命令行里已经显示了 “recording @q”。</li>
+<li>如果你已经录制完成，那么只需要再按一次 <kbd>q</kbd> 就可以结束录制。</li>
+<li>如果你想调用刚才录制的宏，只需要 <code>[count]@q</code></li>
+<li>如果你想调用上一次使用的宏，只需要 <code>[count]@@</code></li>
+</ul>
+<p><strong>实例1</strong>：</p>
+<p>一个插入字符串 “abc” 后换行的宏，重复调用十次：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qq</span><br><span class="line"><span class="keyword">iabc</span><span class="symbol">&lt;cr&gt;</span><span class="symbol">&lt;esc&gt;</span></span><br><span class="line">q</span><br><span class="line"><span class="number">10</span>@q</span><br></pre></td></tr></table></figure>
+<p>（对于上面这个功能，你同样可以通过如下的按键： <kbd>o</kbd><kbd>a</kbd><kbd>b</kbd><kbd>c</kbd> 然后 <kbd>ESC</kbd> 然后 <kbd>1</kbd><kbd>0</kbd><kbd>.</kbd> 来实现）。</p>
+<p><strong>实例2</strong>：</p>
+<p>一个在每行前都加上行号的宏。从第一行开始，行号为 1，后面依次递增。我们可以通过 <kbd>Ctrl</kbd> + <kbd>a</kbd> 来实现递增的行号，在定义宏的时候，它会显示成 <code>^A</code>。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qq</span><br><span class="line"><span class="number">0</span>yf jP0^A</span><br><span class="line">q</span><br><span class="line"><span class="number">1000</span> @q</span><br></pre></td></tr></table></figure>
+<p>这里能实现功能，是因为我们假定了文件最多只有 1000 行。但更好的方式是使用「递归」宏，它会一直执行，知道不能执行为止：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qq</span><br><span class="line"><span class="number">0</span>yf jP0^A@q</span><br><span class="line">q</span><br><span class="line">@q</span><br></pre></td></tr></table></figure>
+<p>（对于上面这个插入行号的功能，如果你不愿意使用宏，同样可以通过这段按键操作来实现：<code>:%s/^/\=line(&#39;.&#39;) . &#39;. &#39;</code>）。</p>
+<p>这里向大家展示了如何不用宏来达到相应的效果，但要注意，这些不用宏的实现方式只适用于这些简单的示例。对于一些比较复杂的自动化操作，你确实应该考虑使用宏。</p>
+<p>请参阅以下文档获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:h recording</span><br><span class="line">:h <span class="string">'lazyredraw'</span></span><br></pre></td></tr></table></figure>
+<h2 id="颜色主题"><a href="#颜色主题" class="headerlink" title="颜色主题"></a>颜色主题</h2><p>颜色主题可以把你的 Vim 变得更漂亮。Vim 是由多个组件构成的，我们可以给每一个组件都设置不同的文字颜色、背景颜色以及文字加粗等等。比如，我们可以通过这个命令来设置背景颜色：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">highlight</span> Normal ctermbg=<span class="number">1</span> guibg=<span class="keyword">red</span></span><br></pre></td></tr></table></figure>
+<p>执行后你会发现，现在背景颜色变成红色了。请参阅 <code>:h :highlight</code> 来获取更多帮助。</p>
+<p>其实，颜色主题就是一系列的 <code>:highlight</code> 命令的集合。</p>
+<p>事实上，大部分颜色主题都包含两套配置。一套适用于例如 xterm 和 iTerm 这样的终端环境（使用前缀 <code>cterm</code>），另一套适用于例如 gvim 和 MacVim 的图形界面环境（使用前缀 <code>gui</code>）。对于上面的例子，<code>ctermbg</code> 就是针对终端环境的，而 <code>guibg</code> 就是针对图形界面环境的。</p>
+<p>如果你下载了一个颜色主题，并且在终端环境中打开了 Vim，然后发现显示的颜色与主题截图中差别很大，那很可能是配置文件只设置了图形界面环境的颜色。反之同理，如果你使用的是图形界面环境，发现显示颜色有问题，那就很可能是配置文件只设置了终端环境的颜色。</p>
+<p>第二种情况（图形界面环境的显示问题）其实不难解决。如果你使用的是 Neovim 或者 Vim 7.4.1830 的后续版本，可以通过打开<a href="https://zh.wikipedia.org/wiki/真彩色" target="_blank" rel="noopener">真彩色</a>设置来解决显示问题。这就可以让终端环境的 Vim 使用 GUI 的颜色定义，但首先，你要确认一下你的终端环境和环境内的组件（比如 tmux）是否都支持真彩色。可以看一下<a href="https://gist.github.com/XVilka/8346728" target="_blank" rel="noopener">这篇文档</a>，描述的十分详细。</p>
+<p>请参阅以下文档或链接来获取更多帮助：</p>
+<ul>
+<li><code>:h &#39;termguicolors&#39;</code></li>
+<li><a href="#主题列表">主题列表</a></li>
+<li><a href="#自定义主题中的颜色">自定义主题中的颜色</a></li>
+</ul>
+<h2 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h2><p>每一部分文字（或者代码）都会有特定的结构。对于存在结构的文字和代码，也就意味着它们可以按照一定的逻辑分割成不同区域。Vim 中的折叠功能，就是按照特定的逻辑把文字和代码折叠成一行，并显示一些简短的描述。折叠功能涉及到很多操作，而且折叠功能可以嵌套使用。</p>
+<p>在 Vim 中，有以下 6 中折叠类型：</p>
+<table>
+<thead>
+<tr>
+<th>折叠方式</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diff</td>
+<td>在「比较窗口」中折叠未改变的文本</td>
+</tr>
+<tr>
+<td>expr</td>
+<td>使用 <code>&#39;foldexpr&#39;</code> 来创建新的折叠逻辑</td>
+</tr>
+<tr>
+<td>indent</td>
+<td>基于缩进折叠</td>
+</tr>
+<tr>
+<td>manual</td>
+<td>使用 <code>zf</code>、<code>zF</code> 或 <code>:fold</code> 来自定义折叠</td>
+</tr>
+<tr>
+<td>marker</td>
+<td>根据特定的文本标记折叠（通常用于代码注释）</td>
+</tr>
+<tr>
+<td>syntax</td>
+<td>根据语法折叠，比如折叠 <code>if</code> 代码块</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：折叠功能可能会显著地影响性能。如果你在使用折叠功能的时候出现了打字卡顿之类的问题，请考虑使用 <a href="https://github.com/Konfekt/FastFold" target="_blank" rel="noopener">FastFold 插件</a>。这个插件可以让 Vim 按需更新折叠内容，而不是一直调用。</p>
+<p>请参阅以下文档获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:h usr_28</span><br><span class="line">:h folds</span><br></pre></td></tr></table></figure>
+<h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>如果你保存了当前的「视图」（请参阅 <code>:h :mkview</code>），那么当前窗口、配置和按键映射都会被保存下来（请参阅 <code>:h :loadview</code>）。</p>
+<p>「会话」就是存储所有窗口的相关设置，以及全局设置。简单来说，就是给当前的 Vim 运行实例拍个照，然后把相关信息存储到会话文件中。存储之后的改动就不会在会话文件中显示，你只需要在改动后更新一下会话文件就可以了。</p>
+<p>你可以把当前工作的「项目」存储起来，然后可以在不同的「项目」之间切换。</p>
+<p>现在就来试试吧。打开几个窗口和标签，然后执行 <code>:mksession Foo.vim</code>。如果你没有指定文件名，那就会默认保存为 <code>Session.vim</code>。这个文件会保存在当前的目录下，你可以通过 <code>:pwd</code> 来显示当前路径。重启 Vim 之后，你只需要执行 <code>:source Foo.vim</code>，就可以恢复刚才的会话了。所有的缓冲区、窗口布局、按键映射以及工作路径都会恢复到保存时的状态。</p>
+<p>其实 Vim 的会话文件就只是 Vim 命令的集合。你可以通过命令 <code>:vs Foo.vim</code> 来看看会话文件中究竟有什么。</p>
+<p>你可以决定 Vim 会话中究竟要保存哪些配置，只需要设置一下 <code>&#39;sessionoptions&#39;</code> 就可以了。</p>
+<p>为了方便开发，Vim 把最后一次调用或写入的会话赋值给了一个内部变量 <code>v:this_session</code>。</p>
+<p>请参阅以下文档来获取更多帮助：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:h Session</span><br><span class="line">:h <span class="string">'sessionoptions'</span></span><br><span class="line">:h <span class="variable">v:this_session</span></span><br></pre></td></tr></table></figure>
+<h2 id="局部化"><a href="#局部化" class="headerlink" title="局部化"></a>局部化</h2><p>以上提到的很多概念，都有一个局部化（非全局）的版本：</p>
+<table>
+<thead>
+<tr>
+<th>全局</th>
+<th>局部</th>
+<th>作用域</th>
+<th>帮助文档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:set</code></td>
+<td><code>:setlocal</code></td>
+<td>缓冲区或窗口</td>
+<td><code>:h local-options</code></td>
+</tr>
+<tr>
+<td><code>:map</code></td>
+<td><code>:map &lt;buffer&gt;</code></td>
+<td>缓冲区</td>
+<td><code>:h :map-local</code></td>
+</tr>
+<tr>
+<td><code>:autocmd</code></td>
+<td><code>:autocmd * &lt;buffer&gt;</code></td>
+<td>缓冲区</td>
+<td><code>:h autocmd-buflocal</code></td>
+</tr>
+<tr>
+<td><code>:cd</code></td>
+<td><code>:lcd</code></td>
+<td>窗口</td>
+<td><code>:h :lcd</code></td>
+</tr>
+<tr>
+<td><code>:&lt;leader&gt;</code></td>
+<td><code>:&lt;localleader&gt;</code></td>
+<td>缓冲区</td>
+<td><code>:h maploacalleader</code></td>
+</tr>
+</tbody>
+</table>
+<p>变量也有不同的作用域，详细内容请参考 <a href="http://vimdoc.sourceforge.net/htmldoc/usr_41.html" target="_blank" rel="noopener">Vim scripting 的文档</a>。</p>
+<h1 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h1><h2 id="获取离线帮助"><a href="#获取离线帮助" class="headerlink" title="获取离线帮助"></a>获取离线帮助</h2><h2 id="获取离线帮助-备选"><a href="#获取离线帮助-备选" class="headerlink" title="获取离线帮助(备选)"></a>获取离线帮助(备选)</h2><h2 id="获取在线帮助"><a href="#获取在线帮助" class="headerlink" title="获取在线帮助"></a>获取在线帮助</h2><h2 id="执行自动命令"><a href="#执行自动命令" class="headerlink" title="执行自动命令"></a>执行自动命令</h2><h3 id="用户自定义事件"><a href="#用户自定义事件" class="headerlink" title="用户自定义事件"></a>用户自定义事件</h3><h3 id="内部自带事件"><a href="#内部自带事件" class="headerlink" title="内部自带事件"></a>内部自带事件</h3><h2 id="剪贴板"><a href="#剪贴板" class="headerlink" title="剪贴板"></a>剪贴板</h2><h2 id="剪贴板使用-Windows-OSX"><a href="#剪贴板使用-Windows-OSX" class="headerlink" title="剪贴板使用 (Windows, OSX)"></a>剪贴板使用 (Windows, OSX)</h2><h2 id="剪贴板使用-Linux-BSD-…"><a href="#剪贴板使用-Linux-BSD-…" class="headerlink" title="剪贴板使用 (Linux, BSD, …)"></a>剪贴板使用 (Linux, BSD, …)</h2><h2 id="打开文件时恢复光标位置"><a href="#打开文件时恢复光标位置" class="headerlink" title="打开文件时恢复光标位置"></a>打开文件时恢复光标位置</h2><h2 id="备份文件，交换文件，撤销文件以及-viminfo-文件的处理"><a href="#备份文件，交换文件，撤销文件以及-viminfo-文件的处理" class="headerlink" title="备份文件，交换文件，撤销文件以及 viminfo 文件的处理"></a>备份文件，交换文件，撤销文件以及 viminfo 文件的处理</h2><h2 id="编辑远程文件"><a href="#编辑远程文件" class="headerlink" title="编辑远程文件"></a>编辑远程文件</h2><h2 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h2><h2 id="片段插入"><a href="#片段插入" class="headerlink" title="片段插入"></a>片段插入</h2><h2 id="使用外部程序和过滤器"><a href="#使用外部程序和过滤器" class="headerlink" title="使用外部程序和过滤器"></a>使用外部程序和过滤器</h2><h2 id="MatchIt"><a href="#MatchIt" class="headerlink" title="MatchIt"></a>MatchIt</h2><h1 id="技巧-1"><a href="#技巧-1" class="headerlink" title="技巧"></a>技巧</h1><h2 id="聪明的使用-n-和-N"><a href="#聪明的使用-n-和-N" class="headerlink" title="聪明的使用 n 和 N"></a>聪明的使用 n 和 N</h2><h2 id="聪明的使用命令行历史"><a href="#聪明的使用命令行历史" class="headerlink" title="聪明的使用命令行历史"></a>聪明的使用命令行历史</h2><h2 id="智能-Ctrl-l"><a href="#智能-Ctrl-l" class="headerlink" title="智能 Ctrl-l"></a>智能 Ctrl-l</h2><h2 id="禁用错误报警声音和图标"><a href="#禁用错误报警声音和图标" class="headerlink" title="禁用错误报警声音和图标"></a>禁用错误报警声音和图标</h2><h2 id="快速移动当前行"><a href="#快速移动当前行" class="headerlink" title="快速移动当前行"></a>快速移动当前行</h2><h2 id="快速添加空行"><a href="#快速添加空行" class="headerlink" title="快速添加空行"></a>快速添加空行</h2><h2 id="快速编辑自定义宏"><a href="#快速编辑自定义宏" class="headerlink" title="快速编辑自定义宏"></a>快速编辑自定义宏</h2><h2 id="快速跳转到源-头-文件"><a href="#快速跳转到源-头-文件" class="headerlink" title="快速跳转到源(头)文件"></a>快速跳转到源(头)文件</h2><h2 id="在-GUI-中快速改变字体大小"><a href="#在-GUI-中快速改变字体大小" class="headerlink" title="在 GUI 中快速改变字体大小"></a>在 GUI 中快速改变字体大小</h2><h2 id="根据模式改变光标类型"><a href="#根据模式改变光标类型" class="headerlink" title="根据模式改变光标类型"></a>根据模式改变光标类型</h2><h2 id="防止水平滑动的时候失去选择"><a href="#防止水平滑动的时候失去选择" class="headerlink" title="防止水平滑动的时候失去选择"></a>防止水平滑动的时候失去选择</h2><h2 id="重新载入保存文件"><a href="#重新载入保存文件" class="headerlink" title="重新载入保存文件"></a>重新载入保存文件</h2><h2 id="智能当前行"><a href="#智能当前行" class="headerlink" title="智能当前行"></a>智能当前行</h2><h2 id="更快的关键字补全"><a href="#更快的关键字补全" class="headerlink" title="更快的关键字补全"></a>更快的关键字补全</h2><h1 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h1><h2 id="global-在所有匹配行执行命令"><a href="#global-在所有匹配行执行命令" class="headerlink" title=":global - 在所有匹配行执行命令"></a>:global - 在所有匹配行执行命令</h2><h2 id="normal-and-execute-脚本梦之队"><a href="#normal-and-execute-脚本梦之队" class="headerlink" title=":normal and :execute - 脚本梦之队"></a>:normal and :execute - 脚本梦之队</h2><h2 id="redir-重定向消息"><a href="#redir-重定向消息" class="headerlink" title=":redir - 重定向消息"></a>:redir - 重定向消息</h2><h1 id="调试-1"><a href="#调试-1" class="headerlink" title="调试"></a>调试</h1><h2 id="常规建议"><a href="#常规建议" class="headerlink" title="常规建议"></a>常规建议</h2><h2 id="查看启动日志"><a href="#查看启动日志" class="headerlink" title="查看启动日志"></a>查看启动日志</h2><h2 id="查看运行时日志"><a href="#查看运行时日志" class="headerlink" title="查看运行时日志"></a>查看运行时日志</h2><h2 id="调整日志等级"><a href="#调整日志等级" class="headerlink" title="调整日志等级"></a>调整日志等级</h2><h2 id="vim-脚本调试"><a href="#vim-脚本调试" class="headerlink" title="vim 脚本调试"></a>vim 脚本调试</h2><h2 id="语法文件调试"><a href="#语法文件调试" class="headerlink" title="语法文件调试"></a>语法文件调试</h2><h1 id="杂项-1"><a href="#杂项-1" class="headerlink" title="杂项"></a>杂项</h1><h2 id="附加资源"><a href="#附加资源" class="headerlink" title="附加资源"></a>附加资源</h2><h2 id="Vim-配置集合"><a href="#Vim-配置集合" class="headerlink" title="Vim 配置集合"></a>Vim 配置集合</h2><h2 id="内置插件"><a href="#内置插件" class="headerlink" title="内置插件"></a>内置插件</h2><h2 id="将-Control-映射到-CapsLock"><a href="#将-Control-映射到-CapsLock" class="headerlink" title="将 Control 映射到 CapsLock"></a>将 Control 映射到 CapsLock</h2><h2 id="复活节彩蛋"><a href="#复活节彩蛋" class="headerlink" title="复活节彩蛋"></a>复活节彩蛋</h2><h2 id="为何使用-hjkl"><a href="#为何使用-hjkl" class="headerlink" title="为何使用 hjkl"></a>为何使用 hjkl</h2><h1 id="怪癖-1"><a href="#怪癖-1" class="headerlink" title="怪癖"></a>怪癖</h1><h2 id="编辑小文件很慢"><a href="#编辑小文件很慢" class="headerlink" title="编辑小文件很慢"></a>编辑小文件很慢</h2><h2 id="编辑大文件很慢"><a href="#编辑大文件很慢" class="headerlink" title="编辑大文件很慢"></a>编辑大文件很慢</h2><h2 id="新行用于-NUL"><a href="#新行用于-NUL" class="headerlink" title="新行用于 NUL"></a>新行用于 NUL</h2><h2 id="相同部分粘贴-要不为什么我总要设置‘粘贴’"><a href="#相同部分粘贴-要不为什么我总要设置‘粘贴’" class="headerlink" title="相同部分粘贴 (要不为什么我总要设置‘粘贴’?)"></a>相同部分粘贴 (要不为什么我总要设置‘粘贴’?)</h2><h2 id="在终端使用-Esc-延时"><a href="#在终端使用-Esc-延时" class="headerlink" title="在终端使用 Esc 延时"></a>在终端使用 Esc 延时</h2><h2 id="无法重复函数中执行的搜索"><a href="#无法重复函数中执行的搜索" class="headerlink" title="无法重复函数中执行的搜索"></a>无法重复函数中执行的搜索</h2><h2 id="主题列表-1"><a href="#主题列表-1" class="headerlink" title="主题列表"></a>主题列表</h2><h1 id="插件列表-1"><a href="#插件列表-1" class="headerlink" title="插件列表"></a>插件列表</h1><h1 id="Neovim-1"><a href="#Neovim-1" class="headerlink" title="Neovim"></a>Neovim</h1><h2 id="加入我们"><a href="#加入我们" class="headerlink" title="加入我们"></a>加入我们</h2><p>可以协助我们核对翻译，或者从<a href="CONTRIBUTING.md">章节列表</a>中认领章节进行翻译。</p>
+<h2 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h2><ul>
+<li><a href="https://github.com/LCTT" target="_blank" rel="noopener">Linux 中国翻译组</a></li>
+<li><a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vi/" rel="tag"># vi</a>
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-07-26-lodash-syntax-doc/" rel="next" title="Lodash中文文档">
+                <i class="fa fa-chevron-left"></i> Lodash中文文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017-02-20-chinese-domain-name-binding-pages/" rel="prev" title="中文域名解析和绑定Pages服务">
+                中文域名解析和绑定Pages服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-galore-中文翻译"><span class="nav-number">1.</span> <span class="nav-text">vim-galore 中文翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.2.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">1.3.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">1.4.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">1.5.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">1.6.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杂项"><span class="nav-number">1.7.</span> <span class="nav-text">杂项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怪癖"><span class="nav-number">1.8.</span> <span class="nav-text">怪癖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题列表"><span class="nav-number">1.9.</span> <span class="nav-text">主题列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件列表"><span class="nav-number">1.10.</span> <span class="nav-text">插件列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neovim"><span class="nav-number">1.11.</span> <span class="nav-text">Neovim</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介-1"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Vim？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是 Vim？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-哲学"><span class="nav-number">2.2.</span> <span class="nav-text">Vim 哲学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">2.3.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#精简的-vimrc"><span class="nav-number">2.4.</span> <span class="nav-text">精简的 vimrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我正在使用什么样的-Vim"><span class="nav-number">2.5.</span> <span class="nav-text">我正在使用什么样的 Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备忘录"><span class="nav-number">2.6.</span> <span class="nav-text">备忘录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础-1"><span class="nav-number">3.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓冲区，窗口，标签"><span class="nav-number">3.1.</span> <span class="nav-text">缓冲区，窗口，标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已激活，已载入，已列出，已命名，缓冲区"><span class="nav-number">3.2.</span> <span class="nav-text">已激活，已载入，已列出，已命名，缓冲区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数列表"><span class="nav-number">3.3.</span> <span class="nav-text">参数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按键映射"><span class="nav-number">3.4.</span> <span class="nav-text">按键映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射占位符"><span class="nav-number">3.5.</span> <span class="nav-text">映射占位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器"><span class="nav-number">3.6.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围"><span class="nav-number">3.7.</span> <span class="nav-text">范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标注"><span class="nav-number">3.8.</span> <span class="nav-text">标注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补全"><span class="nav-number">3.9.</span> <span class="nav-text">补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作，操作符，文本对象"><span class="nav-number">3.10.</span> <span class="nav-text">动作，操作符，文本对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动命令"><span class="nav-number">3.11.</span> <span class="nav-text">自动命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变更历史，跳转历史"><span class="nav-number">3.12.</span> <span class="nav-text">变更历史，跳转历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容变更历史记录"><span class="nav-number">3.13.</span> <span class="nav-text">内容变更历史记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局位置信息表，局部位置信息表"><span class="nav-number">3.14.</span> <span class="nav-text">全局位置信息表，局部位置信息表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏"><span class="nav-number">3.15.</span> <span class="nav-text">宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色主题"><span class="nav-number">3.16.</span> <span class="nav-text">颜色主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折叠"><span class="nav-number">3.17.</span> <span class="nav-text">折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#会话"><span class="nav-number">3.18.</span> <span class="nav-text">会话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部化"><span class="nav-number">3.19.</span> <span class="nav-text">局部化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用法-1"><span class="nav-number">4.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取离线帮助"><span class="nav-number">4.1.</span> <span class="nav-text">获取离线帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取离线帮助-备选"><span class="nav-number">4.2.</span> <span class="nav-text">获取离线帮助(备选)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取在线帮助"><span class="nav-number">4.3.</span> <span class="nav-text">获取在线帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行自动命令"><span class="nav-number">4.4.</span> <span class="nav-text">执行自动命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户自定义事件"><span class="nav-number">4.4.1.</span> <span class="nav-text">用户自定义事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部自带事件"><span class="nav-number">4.4.2.</span> <span class="nav-text">内部自带事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪贴板"><span class="nav-number">4.5.</span> <span class="nav-text">剪贴板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪贴板使用-Windows-OSX"><span class="nav-number">4.6.</span> <span class="nav-text">剪贴板使用 (Windows, OSX)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪贴板使用-Linux-BSD-…"><span class="nav-number">4.7.</span> <span class="nav-text">剪贴板使用 (Linux, BSD, …)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件时恢复光标位置"><span class="nav-number">4.8.</span> <span class="nav-text">打开文件时恢复光标位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份文件，交换文件，撤销文件以及-viminfo-文件的处理"><span class="nav-number">4.9.</span> <span class="nav-text">备份文件，交换文件，撤销文件以及 viminfo 文件的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑远程文件"><span class="nav-number">4.10.</span> <span class="nav-text">编辑远程文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件管理"><span class="nav-number">4.11.</span> <span class="nav-text">插件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#片段插入"><span class="nav-number">4.12.</span> <span class="nav-text">片段插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用外部程序和过滤器"><span class="nav-number">4.13.</span> <span class="nav-text">使用外部程序和过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MatchIt"><span class="nav-number">4.14.</span> <span class="nav-text">MatchIt</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧-1"><span class="nav-number">5.</span> <span class="nav-text">技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聪明的使用-n-和-N"><span class="nav-number">5.1.</span> <span class="nav-text">聪明的使用 n 和 N</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聪明的使用命令行历史"><span class="nav-number">5.2.</span> <span class="nav-text">聪明的使用命令行历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能-Ctrl-l"><span class="nav-number">5.3.</span> <span class="nav-text">智能 Ctrl-l</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁用错误报警声音和图标"><span class="nav-number">5.4.</span> <span class="nav-text">禁用错误报警声音和图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速移动当前行"><span class="nav-number">5.5.</span> <span class="nav-text">快速移动当前行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速添加空行"><span class="nav-number">5.6.</span> <span class="nav-text">快速添加空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速编辑自定义宏"><span class="nav-number">5.7.</span> <span class="nav-text">快速编辑自定义宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速跳转到源-头-文件"><span class="nav-number">5.8.</span> <span class="nav-text">快速跳转到源(头)文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-GUI-中快速改变字体大小"><span class="nav-number">5.9.</span> <span class="nav-text">在 GUI 中快速改变字体大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据模式改变光标类型"><span class="nav-number">5.10.</span> <span class="nav-text">根据模式改变光标类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止水平滑动的时候失去选择"><span class="nav-number">5.11.</span> <span class="nav-text">防止水平滑动的时候失去选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新载入保存文件"><span class="nav-number">5.12.</span> <span class="nav-text">重新载入保存文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能当前行"><span class="nav-number">5.13.</span> <span class="nav-text">智能当前行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更快的关键字补全"><span class="nav-number">5.14.</span> <span class="nav-text">更快的关键字补全</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令-1"><span class="nav-number">6.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#global-在所有匹配行执行命令"><span class="nav-number">6.1.</span> <span class="nav-text">:global - 在所有匹配行执行命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normal-and-execute-脚本梦之队"><span class="nav-number">6.2.</span> <span class="nav-text">:normal and :execute - 脚本梦之队</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redir-重定向消息"><span class="nav-number">6.3.</span> <span class="nav-text">:redir - 重定向消息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调试-1"><span class="nav-number">7.</span> <span class="nav-text">调试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规建议"><span class="nav-number">7.1.</span> <span class="nav-text">常规建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看启动日志"><span class="nav-number">7.2.</span> <span class="nav-text">查看启动日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看运行时日志"><span class="nav-number">7.3.</span> <span class="nav-text">查看运行时日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整日志等级"><span class="nav-number">7.4.</span> <span class="nav-text">调整日志等级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-脚本调试"><span class="nav-number">7.5.</span> <span class="nav-text">vim 脚本调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法文件调试"><span class="nav-number">7.6.</span> <span class="nav-text">语法文件调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项-1"><span class="nav-number">8.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#附加资源"><span class="nav-number">8.1.</span> <span class="nav-text">附加资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-配置集合"><span class="nav-number">8.2.</span> <span class="nav-text">Vim 配置集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置插件"><span class="nav-number">8.3.</span> <span class="nav-text">内置插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将-Control-映射到-CapsLock"><span class="nav-number">8.4.</span> <span class="nav-text">将 Control 映射到 CapsLock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复活节彩蛋"><span class="nav-number">8.5.</span> <span class="nav-text">复活节彩蛋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为何使用-hjkl"><span class="nav-number">8.6.</span> <span class="nav-text">为何使用 hjkl</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怪癖-1"><span class="nav-number">9.</span> <span class="nav-text">怪癖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑小文件很慢"><span class="nav-number">9.1.</span> <span class="nav-text">编辑小文件很慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑大文件很慢"><span class="nav-number">9.2.</span> <span class="nav-text">编辑大文件很慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新行用于-NUL"><span class="nav-number">9.3.</span> <span class="nav-text">新行用于 NUL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相同部分粘贴-要不为什么我总要设置‘粘贴’"><span class="nav-number">9.4.</span> <span class="nav-text">相同部分粘贴 (要不为什么我总要设置‘粘贴’?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在终端使用-Esc-延时"><span class="nav-number">9.5.</span> <span class="nav-text">在终端使用 Esc 延时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无法重复函数中执行的搜索"><span class="nav-number">9.6.</span> <span class="nav-text">无法重复函数中执行的搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题列表-1"><span class="nav-number">9.7.</span> <span class="nav-text">主题列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件列表-1"><span class="nav-number">10.</span> <span class="nav-text">插件列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Neovim-1"><span class="nav-number">11.</span> <span class="nav-text">Neovim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加入我们"><span class="nav-number">11.1.</span> <span class="nav-text">加入我们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#致谢："><span class="nav-number">11.2.</span> <span class="nav-text">致谢：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

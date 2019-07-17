@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Weather,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="看了前两个天气预报接口的童鞋估计不会再看这篇文章了，其实这篇文档也挺有用的，用的是中国天气网-气象数据开放平台的接口，相信这个接口是比较稳定的，也可以放心使用。  1.直接给出代码:">
+<meta name="keywords" content="Weather">
+<meta property="og:type" content="article">
+<meta property="og:title" content="天气预报接口2">
+<meta property="og:url" content="https://note.pin.bo/2015-04-13-weather-forecast-interface/index.html">
+<meta property="og:site_name" content="我的笔记">
+<meta property="og:description" content="看了前两个天气预报接口的童鞋估计不会再看这篇文章了，其实这篇文档也挺有用的，用的是中国天气网-气象数据开放平台的接口，相信这个接口是比较稳定的，也可以放心使用。  1.直接给出代码:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-02-20T04:38:35.401Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="天气预报接口2">
+<meta name="twitter:description" content="看了前两个天气预报接口的童鞋估计不会再看这篇文章了，其实这篇文档也挺有用的，用的是中国天气网-气象数据开放平台的接口，相信这个接口是比较稳定的，也可以放心使用。  1.直接给出代码:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.pin.bo/2015-04-13-weather-forecast-interface/">
+
+
+
+
+
+  <title>天气预报接口2 | 我的笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/2015-04-13-weather-forecast-interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Phil">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">天气预报接口2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-13T11:13:00+08:00">
+                2015-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>看了前两个天气预报接口的童鞋估计不会再看这篇文章了，其实这篇文档也挺有用的，用的是中国天气网-气象数据开放平台的接口，相信这个接口是比较稳定的，也可以放心使用。</p>
+</blockquote>
+<p>1.直接给出代码:</p>
+<a id="more"></a>
+<pre><code>package name.zhoufei.weather;
+import name.zhoufei.util.HttpPost;
+import name.zhoufei.util.StringUtils;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.net.URLEncoder;
+import java.security.InvalidKeyException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2015/4/13.
+ */
+public class ChinaWeather {
+
+    private static final char last2byte = (char) Integer.parseInt(&quot;00000011&quot;, 2);
+    private static final char last4byte = (char) Integer.parseInt(&quot;00001111&quot;, 2);
+    private static final char last6byte = (char) Integer.parseInt(&quot;00111111&quot;, 2);
+    private static final char lead6byte = (char) Integer.parseInt(&quot;11111100&quot;, 2);
+    private static final char lead4byte = (char) Integer.parseInt(&quot;11110000&quot;, 2);
+    private static final char lead2byte = (char) Integer.parseInt(&quot;11000000&quot;, 2);
+    private static final char[] encodeTable = new char[] { &apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;,
+        &apos;E&apos;, &apos;F&apos;, &apos;G&apos;, &apos;H&apos;, &apos;I&apos;, &apos;J&apos;, &apos;K&apos;, &apos;L&apos;, &apos;M&apos;, &apos;N&apos;, &apos;O&apos;, &apos;P&apos;, &apos;Q&apos;,
+        &apos;R&apos;, &apos;S&apos;, &apos;T&apos;, &apos;U&apos;, &apos;V&apos;, &apos;W&apos;, &apos;X&apos;, &apos;Y&apos;, &apos;Z&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;,
+        &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;, &apos;k&apos;, &apos;l&apos;, &apos;m&apos;, &apos;n&apos;, &apos;o&apos;, &apos;p&apos;, &apos;q&apos;,
+        &apos;r&apos;, &apos;s&apos;, &apos;t&apos;, &apos;u&apos;, &apos;v&apos;, &apos;w&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;, &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;,
+        &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;+&apos;, &apos;/&apos;
+    };
+
+    public static String standardURLEncoder(String data, String key) {
+    byte[] byteHMAC = null;
+    String urlEncoder = &quot;&quot;;
+    try {
+        Mac mac = Mac.getInstance(&quot;HmacSHA1&quot;);
+        SecretKeySpec spec = new SecretKeySpec(key.getBytes(), &quot;HmacSHA1&quot;);
+        mac.init(spec);
+        byteHMAC = mac.doFinal(data.getBytes());
+        if (byteHMAC != null) {
+        String oauth = encode(byteHMAC);
+        if (oauth != null) {
+            urlEncoder = URLEncoder.encode(oauth, &quot;utf8&quot;);
+        }
+        }
+    } catch (InvalidKeyException e1) {
+        e1.printStackTrace();
+    } catch (Exception e2) {
+        e2.printStackTrace();
+    }
+    return urlEncoder;
+    }
+
+    public static String encode(byte[] from) {
+    StringBuffer to = new StringBuffer((int) (from.length * 1.34) + 3);
+    int num = 0;
+    char currentByte = 0;
+    for (int i = 0; i &amp;lt; from.length; i++) {
+        num = num % 8;
+        while (num &amp;lt; 8) {
+        switch (num) {
+            case 0:
+                currentByte = (char) (from[i] &amp;amp; lead6byte);
+                currentByte = (char) (currentByte &amp;gt;&amp;gt;&amp;gt; 2);
+                break;
+            case 2:
+                currentByte = (char) (from[i] &amp;amp; last6byte);
+                break;
+            case 4:
+                currentByte = (char) (from[i] &amp;amp; last4byte);
+                currentByte = (char) (currentByte &amp;lt;&amp;lt; 2);
+                if ((i + 1) &amp;lt; from.length) {
+                    currentByte |= (from[i + 1] &amp;amp; lead2byte) &amp;gt;&amp;gt;&amp;gt; 6;
+                }
+                break;
+            case 6:
+                currentByte = (char) (from[i] &amp;amp; last2byte);
+                currentByte = (char) (currentByte &amp;lt;&amp;lt; 4);
+                if ((i + 1) &amp;lt; from.length) {
+                    currentByte |= (from[i + 1] &amp;amp; lead4byte) &amp;gt;&amp;gt;&amp;gt; 4;
+                }
+                break;
+        }
+        to.append(encodeTable[currentByte]);
+        num += 6;
+        }
+    }
+    if (to.length() % 4 != 0) {
+        for (int i = 4 - to.length() % 4; i &amp;gt; 0; i--) {
+        to.append(&quot;=&quot;);
+        }
+    }
+    return to.toString();
+    }
+
+
+    /**
+     * 以上是中国天气网气象数据开放平台给出的JAVA的demo  地址：http://openweather.weather.com.cn/
+     */
+
+
+    public static void main(String[] args) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat(&quot;yyyyMMddhhmm&quot;);
+    String date = dateFormat.format(new Date());
+
+    //需要加密的数据
+    String data = &quot;http://open.weather.com.cn/data/?areaid=&quot;+getAreaId()+&quot;&amp;amp;type=forecast_v&amp;amp;date=&quot;+date+&quot;&amp;amp;appid=b39305a0fffb05&quot;;
+    //密钥
+    String key = &quot;d6858_SmartWeatherAPI_bef440&quot;;
+
+    String url = &quot;http://open.weather.com.cn/data/?areaid=&quot;+getAreaId()+&quot;&amp;amp;type=forecast_v&amp;amp;date=&quot;+date+&quot;&amp;amp;appid=b39305&amp;amp;key=&quot; + standardURLEncoder(data, key);
+
+    String content = HttpPost.sendGET(url, &quot;utf8&quot;);
+
+    JSONObject jsonObject = JSON.parseObject(content);
+
+    JSONObject city = jsonObject.getJSONObject(&quot;c&quot;);
+    JSONObject weather = jsonObject.getJSONObject(&quot;f&quot;).getJSONArray(&quot;f1&quot;).getJSONObject(0);
+
+    Map&amp;lt;String, Object&amp;gt; dataMap = new HashMap&amp;lt;&amp;gt;();
+    dataMap.put(&quot;city&quot;,city.get(&quot;c3&quot;));
+
+
+    if (!StringUtils.isEmpty(weather.getString(&quot;fa&quot;))){
+        dataMap.put(&quot;weather&quot;,weather.getString(&quot;fa&quot;));
+    }else if (StringUtils.isEmpty(weather.getString(&quot;fa&quot;)) &amp;amp;&amp;amp; !StringUtils.isEmpty(weather.getString(&quot;fb&quot;))){
+        dataMap.put(&quot;weather&quot;,weather.getString(&quot;fb&quot;));
+    }
+
+    if (!StringUtils.isEmpty(weather.getString(&quot;fc&quot;))){
+        dataMap.put(&quot;temperature&quot;,weather.getString(&quot;fc&quot;)+&quot;~&quot;+weather.getString(&quot;fd&quot;)+&quot;℃&quot;);
+    }else if (StringUtils.isEmpty(weather.getString(&quot;fc&quot;)) &amp;amp;&amp;amp; !StringUtils.isEmpty(weather.getString(&quot;fd&quot;))){
+        dataMap.put(&quot;temperature&quot;,weather.getString(&quot;fd&quot;)+&quot;℃&quot;);
+    }
+
+    System.out.println(&quot;city:&quot;+dataMap.get(&quot;city&quot;));
+    System.out.println(&quot;weather:&quot;+dataMap.get(&quot;weather&quot;));
+    System.out.println(&quot;temperature:&quot;+dataMap.get(&quot;temperature&quot;));
+    }
+
+    /**
+     * 根据网络请求获得IP地址，同时得到该网关下的城市ID
+     * @return 城市ID
+     */
+    public static String getAreaId(){
+    String result = HttpPost.sendGET(&quot;http://61.4.185.48:81/g/&quot;,&quot;UTF-8&quot;);
+    return result.substring(result.indexOf(&quot;id=&quot;)+3,result.indexOf(&quot;;if&quot;));
+    }
+
+}
+</code></pre><p>2. 从中国天气网的接口得到的JSON如下：</p>
+<pre><code>{
+ &quot;c&quot;: {
+ &quot;c1&quot;: &quot;101010100&quot;,
+ &quot;c2&quot;: &quot;beijing&quot;,
+ &quot;c3&quot;: &quot;北京&quot;,
+ &quot;c4&quot;: &quot;beijing&quot;,
+ &quot;c5&quot;: &quot;北京&quot;,
+ &quot;c6&quot;: &quot;beijing&quot;,
+ &quot;c7&quot;: &quot;北京&quot;,
+ &quot;c8&quot;: &quot;china&quot;,
+ &quot;c9&quot;: &quot;中国&quot;,
+ &quot;c10&quot;: &quot;1&quot;,
+ &quot;c11&quot;: &quot;010&quot;,
+ &quot;c12&quot;: &quot;100000&quot;,
+ &quot;c13&quot;: 116.391,
+ &quot;c14&quot;: 39.904,
+ &quot;c15&quot;: &quot;33&quot;,
+ &quot;c16&quot;: &quot;AZ9010&quot;,
+ &quot;c17&quot;: &quot;+8&quot;
+ },
+ &quot;f&quot;: {
+ &quot;f1&quot;: [
+ {
+ &quot;fa&quot;: &quot;01&quot;,
+ &quot;fb&quot;: &quot;00&quot;,
+ &quot;fc&quot;: &quot;18&quot;,
+ &quot;fd&quot;: &quot;5&quot;,
+ &quot;fe&quot;: &quot;8&quot;,
+ &quot;ff&quot;: &quot;0&quot;,
+ &quot;fg&quot;: &quot;1&quot;,
+ &quot;fh&quot;: &quot;0&quot;,
+ &quot;fi&quot;: &quot;05:40|18:49&quot;
+ },
+ {
+ &quot;fa&quot;: &quot;00&quot;,
+ &quot;fb&quot;: &quot;01&quot;,
+ &quot;fc&quot;: &quot;24&quot;,
+ &quot;fd&quot;: &quot;10&quot;,
+ &quot;fe&quot;: &quot;0&quot;,
+ &quot;ff&quot;: &quot;0&quot;,
+ &quot;fg&quot;: &quot;0&quot;,
+ &quot;fh&quot;: &quot;0&quot;,
+ &quot;fi&quot;: &quot;05:38|18:50&quot;
+ },
+ {
+ &quot;fa&quot;: &quot;02&quot;,
+ &quot;fb&quot;: &quot;00&quot;,
+ &quot;fc&quot;: &quot;25&quot;,
+ &quot;fd&quot;: &quot;13&quot;,
+ &quot;fe&quot;: &quot;8&quot;,
+ &quot;ff&quot;: &quot;8&quot;,
+ &quot;fg&quot;: &quot;1&quot;,
+ &quot;fh&quot;: &quot;2&quot;,
+ &quot;fi&quot;: &quot;05:37|18:51&quot;
+ }
+ ],
+ &quot;f0&quot;: &quot;201504130800&quot;
+ }
+}
+</code></pre><p>3. 解析之后的结果如下：</p>
+<pre><code>city:上海
+weather:07
+temperature:15~8℃
+</code></pre><p>4. 其中weather是天气编码，对应的天气情况如下表：</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>中文名称</th>
+<th>英文名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>晴</td>
+<td>Sunny</td>
+</tr>
+<tr>
+<td>01</td>
+<td>多云</td>
+<td>Cloudy</td>
+</tr>
+<tr>
+<td>02</td>
+<td>阴</td>
+<td>Overcast</td>
+</tr>
+<tr>
+<td>03</td>
+<td>阵雨</td>
+<td>Shower</td>
+</tr>
+<tr>
+<td>04</td>
+<td>雷阵雨</td>
+<td>Thundershower</td>
+</tr>
+<tr>
+<td>05</td>
+<td>雷阵雨伴有冰雹</td>
+<td>Thundershower with hail</td>
+</tr>
+<tr>
+<td>06</td>
+<td>雨夹雪</td>
+<td>Sleet</td>
+</tr>
+<tr>
+<td>07</td>
+<td>小雨</td>
+<td>Light rain</td>
+</tr>
+<tr>
+<td>08</td>
+<td>中雨</td>
+<td>Moderate rain</td>
+</tr>
+<tr>
+<td>09</td>
+<td>大雨</td>
+<td>Heavy rain</td>
+</tr>
+<tr>
+<td>10</td>
+<td>暴雨</td>
+<td>Storm</td>
+</tr>
+<tr>
+<td>11</td>
+<td>大暴雨</td>
+<td>Heavy storm</td>
+</tr>
+<tr>
+<td>12</td>
+<td>特大暴雨</td>
+<td>Severe storm</td>
+</tr>
+<tr>
+<td>13</td>
+<td>阵雪</td>
+<td>Snow flurry</td>
+</tr>
+<tr>
+<td>14</td>
+<td>小雪</td>
+<td>Light snow</td>
+</tr>
+<tr>
+<td>15</td>
+<td>中雪</td>
+<td>Moderate snow</td>
+</tr>
+<tr>
+<td>16</td>
+<td>大雪</td>
+<td>Heavy snow</td>
+</tr>
+<tr>
+<td>17</td>
+<td>暴雪</td>
+<td>Snowstorm</td>
+</tr>
+<tr>
+<td>18</td>
+<td>雾</td>
+<td>Foggy</td>
+</tr>
+<tr>
+<td>19</td>
+<td>冻雨</td>
+<td>Ice rain</td>
+</tr>
+<tr>
+<td>20</td>
+<td>沙尘暴</td>
+<td>Dust Storm</td>
+</tr>
+<tr>
+<td>21</td>
+<td>小到中雨</td>
+<td>Light to moderate rain</td>
+</tr>
+<tr>
+<td>22</td>
+<td>中到大雨</td>
+<td>Moderate to heavy rain</td>
+</tr>
+<tr>
+<td>23</td>
+<td>大到暴雨</td>
+<td>Heavy rain to storm</td>
+</tr>
+<tr>
+<td>24</td>
+<td>暴雨到大暴雨</td>
+<td>Storm to heavy storm</td>
+</tr>
+<tr>
+<td>25</td>
+<td>大暴雨到特大暴雨</td>
+<td>Heavy to severe storm</td>
+</tr>
+<tr>
+<td>26</td>
+<td>小到中雪</td>
+<td>Light to moderate snow</td>
+</tr>
+<tr>
+<td>27</td>
+<td>中到大雪</td>
+<td>Moderate to heavy snow</td>
+</tr>
+<tr>
+<td>28</td>
+<td>大到暴雪</td>
+<td>Heavy snow to snowstorm</td>
+</tr>
+<tr>
+<td>29</td>
+<td>浮尘</td>
+<td>Dust</td>
+</tr>
+<tr>
+<td>30</td>
+<td>扬沙</td>
+<td>Sandv</td>
+</tr>
+<tr>
+<td>31</td>
+<td>强沙尘暴</td>
+<td>Sandstormv</td>
+</tr>
+<tr>
+<td>32</td>
+<td>霾</td>
+<td>Haze</td>
+</tr>
+<tr>
+<td>33</td>
+<td>无</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Weather/" rel="tag"># Weather</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015-03-06-weather-forecast-interface/" rel="next" title="天气预报接口1">
+                <i class="fa fa-chevron-left"></i> 天气预报接口1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015-05-29-baidu-ueditor-use/" rel="prev" title="富文本编辑器-百度Ueditor的使用">
+                富文本编辑器-百度Ueditor的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Phil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://2048.pin.bo" target="_blank" title="2048">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>2048</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ohhi.pin.bo" target="_blank" title="ohhi">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>ohhi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://hextris.pin.bo" target="_blank" title="hextris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>hextris</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://tetris.pin.bo" target="_blank" title="tetris">
+                      
+                        <i class="fa fa-fw fa-gamepad"></i>tetris</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a target="_blank" href="https://nu.li.pin.bo">Phil</a></span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由<a target="_blank" href="https://hexo.io/">Hexo</a>驱动 使用<a target="_blank" href="https://github.com/iissnan/hexo-theme-next">Next</a>主题 部署在<a target="_blank" href="https://pages.github.com">GitHub</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
