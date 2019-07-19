@@ -417,9 +417,9 @@ sudo apt-get -f install
       <category term="Tutorial" scheme="https://note.pin.bo/categories/Tutorial/"/>
     
     
-      <category term="Ubuntu" scheme="https://note.pin.bo/tags/Ubuntu/"/>
-    
       <category term="wine-qq" scheme="https://note.pin.bo/tags/wine-qq/"/>
+    
+      <category term="Ubuntu" scheme="https://note.pin.bo/tags/Ubuntu/"/>
     
   </entry>
   
