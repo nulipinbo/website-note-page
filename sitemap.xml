@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://note.pin.bo/README.html</loc>
+    
+    <lastmod>2019-07-19T01:30:26.650Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://note.pin.bo/about/index.html</loc>
     
     <lastmod>2019-07-17T02:39:00.679Z</lastmod>
@@ -145,13 +152,6 @@
     <loc>https://note.pin.bo/categories/index.html</loc>
     
     <lastmod>2016-08-04T05:39:11.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://note.pin.bo/README.html</loc>
-    
-    <lastmod>2016-08-04T05:39:11.771Z</lastmod>
     
   </url>
   
