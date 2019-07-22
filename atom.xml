@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://note.pin.bo/"/>
-  <updated>2018-07-26T06:30:54.609Z</updated>
+  <updated>2019-07-22T06:10:16.753Z</updated>
   <id>https://note.pin.bo/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>极客时间课程优惠码分享</title>
+    <link href="https://note.pin.bo/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E9%82%80%E8%AF%B7%E7%A0%81%E5%88%86%E4%BA%AB/"/>
+    <id>https://note.pin.bo/极客时间邀请码分享/</id>
+    <published>2019-05-19T16:00:00.000Z</published>
+    <updated>2019-07-22T06:10:16.753Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>首先列出课程目录，然后贴出微信优惠码</p></blockquote><ul><li>《零基础学Java》</li><li>《零基础学Python》</li><li>《SQL必知必会》</li><li>《玩转Git三剑客》</li><li>《玩转Spring全家桶》</li><li>《微服务架构实战160讲》</li><li>《Java核心技术36讲》</li><li>《Java并发编程实战》</li><li>《Java性能调优实战》</li><li>《深入拆解Java虚拟机》</li><li>《深入浅出计算机组成原理》</li><li>《数据结构与算法之美》</li><li>《算法面试通关40讲》</li><li>《Elasticsearch核心技术与实战》</li><li>《如何设计一个秒杀系统》</li><li>《左耳朵耗子专栏》</li></ul><p><img src="/images/post_images/geekbang/零基础学Java.jpg" alt="零基础学Java"><br><img src="/images/post_images/geekbang/零基础学Python.jpg" alt="零基础学Python"><br><img src="/images/post_images/geekbang/SQL必知必会.jpg" alt="SQL必知必会"><br><img src="/images/post_images/geekbang/玩转Git三剑客.jpg" alt="玩转Git三剑客"><br><img src="/images/post_images/geekbang/玩转Spring全家桶.jpg" alt="玩转Spring全家桶"><br><img src="/images/post_images/geekbang/微服务架构实战160讲.jpg" alt="微服务架构实战160讲"><br><img src="/images/post_images/geekbang/Java核心技术36讲.jpg" alt="Java核心技术36讲"><br><img src="/images/post_images/geekbang/Java并发编程实战.jpg" alt="Java并发编程实战"><br><img src="/images/post_images/geekbang/Java性能调优实战.jpg" alt="Java性能调优实战"><br><img src="/images/post_images/geekbang/深入拆解Java虚拟机.jpg" alt="深入拆解Java虚拟机"><br><img src="/images/post_images/geekbang/深入浅出计算机组成原理.jpg" alt="深入浅出计算机组成原理"><br><img src="/images/post_images/geekbang/数据结构与算法之美.jpg" alt="数据结构与算法之美"><br><img src="/images/post_images/geekbang/算法面试通关40讲.jpg" alt="算法面试通关40讲"><br><img src="/images/post_images/geekbang/Elasticsearch核心技术与实战.jpg" alt="Elasticsearch核心技术与实战"><br><img src="/images/post_images/geekbang/如何设计一个秒杀系统.jpg" alt="如何设计一个秒杀系统"><br><img src="/images/post_images/geekbang/左耳朵耗子专栏.jpg" alt="左耳朵耗子专栏"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;首先列出课程目录，然后贴出微信优惠码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;《零基础学Java》&lt;/li&gt;
+&lt;li&gt;《零基础学Python》&lt;/li&gt;
+&lt;li&gt;《SQL必知必会》&lt;/li&gt;
+&lt;li&gt;《玩转Git三剑客》&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="https://note.pin.bo/categories/Tutorial/"/>
+    
+    
+      <category term="优惠码" scheme="https://note.pin.bo/tags/%E4%BC%98%E6%83%A0%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>奇淫技巧之Linux篇</title>
+    <link href="https://note.pin.bo/Linux/"/>
+    <id>https://note.pin.bo/Linux/</id>
+    <published>2017-05-20T03:13:00.000Z</published>
+    <updated>2019-07-19T06:35:50.705Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Linux学习笔记</p></blockquote><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ol><li><p>创建多级目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p a/b/c/d</span><br></pre></td></tr></table></figure></li><li><p>拷贝文件夹a到目录b</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rvf a/ /b/</span><br></pre></td></tr></table></figure></li><li><p>移动文件a到/tmp目录，并重命名为b</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -vf a /tmp/b</span><br></pre></td></tr></table></figure></li><li><p>删除tmp目录的所有文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rvf /tmp/</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Linux学习笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;目录操作&quot;&gt;&lt;a href=&quot;#目录操作&quot; class=&quot;headerlink&quot; title=&quot;目录操作&quot;&gt;&lt;/a&gt;目录操作&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建多级目录&lt;/p
+      
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://note.pin.bo/categories/Coding/"/>
+    
+    
+      <category term="Linux" scheme="https://note.pin.bo/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS学习笔记</title>
