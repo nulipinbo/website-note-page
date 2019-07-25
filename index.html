@@ -428,7 +428,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/Linux/">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/奇技淫巧之Linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phil">
@@ -447,7 +447,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Linux/" itemprop="url">奇淫技巧之Linux篇</a></h1>
+                <a class="post-title-link" href="/奇技淫巧之Linux/" itemprop="url">奇淫技巧之Linux篇</a></h1>
         
 
         <div class="post-meta">
@@ -535,7 +535,21 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -vf a /tmp/b</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除tmp目录的所有文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rvf /tmp/</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rvf /tmp/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h3><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><ol>
+<li><p>打印匹配行前n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -A n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印匹配行后n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -B n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印匹配行前后n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>翻页查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword" | more //空格键下翻</span><br><span class="line">cat log.log | grep -C n "keyword" | less //jk键上下翻</span><br></pre></td></tr></table></figure></li>
 </ol>
 
           

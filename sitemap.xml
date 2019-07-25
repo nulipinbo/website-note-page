@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://note.pin.bo/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E9%82%80%E8%AF%B7%E7%A0%81%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://note.pin.bo/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E4%B9%8BLinux/</loc>
     
-    <lastmod>2019-07-23T01:23:25.812Z</lastmod>
+    <lastmod>2019-07-25T03:17:53.191Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://note.pin.bo/Linux/</loc>
+    <loc>https://note.pin.bo/2014-10-15-sort-algorithm-java/</loc>
     
-    <lastmod>2019-07-19T06:35:50.705Z</lastmod>
+    <lastmod>2019-07-25T03:17:45.302Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://note.pin.bo/2015-03-06-weather-forecast-interface/</loc>
+    
+    <lastmod>2019-07-25T02:58:07.800Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://note.pin.bo/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%E9%82%80%E8%AF%B7%E7%A0%81%E5%88%86%E4%BA%AB/</loc>
+    
+    <lastmod>2019-07-23T01:33:56.742Z</lastmod>
     
   </url>
   
@@ -96,20 +110,6 @@
     <loc>https://note.pin.bo/2014-09-20-ubuntu-theme-icon/</loc>
     
     <lastmod>2017-02-20T04:39:19.215Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://note.pin.bo/2014-10-15-sort-algorithm-java/</loc>
-    
-    <lastmod>2017-02-20T04:39:01.260Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://note.pin.bo/2015-03-06-weather-forecast-interface/</loc>
-    
-    <lastmod>2017-02-20T04:38:52.005Z</lastmod>
     
   </url>
   

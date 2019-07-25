@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/">
+<meta name="description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="奇淫技巧之Linux篇">
-<meta property="og:url" content="https://note.pin.bo/Linux/index.html">
+<meta property="og:url" content="https://note.pin.bo/奇技淫巧之Linux/index.html">
 <meta property="og:site_name" content="我的笔记">
-<meta property="og:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/">
+<meta property="og:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-19T06:35:50.705Z">
+<meta property="og:updated_time" content="2019-07-25T03:17:53.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇淫技巧之Linux篇">
-<meta name="twitter:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/">
+<meta name="twitter:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://note.pin.bo/Linux/">
+  <link rel="canonical" href="https://note.pin.bo/奇技淫巧之Linux/">
 
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/Linux/">
+    <link itemprop="mainEntityOfPage" href="https://note.pin.bo/奇技淫巧之Linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Phil">
@@ -366,7 +366,21 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -vf a /tmp/b</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除tmp目录的所有文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rvf /tmp/</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rvf /tmp/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h3><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><ol>
+<li><p>打印匹配行前n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -A n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印匹配行后n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -B n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印匹配行前后n行内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>翻页查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword" | more //空格键下翻</span><br><span class="line">cat log.log | grep -C n "keyword" | less //jk键上下翻</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -570,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li></ol></li></ol></div>
             
 
           </div>
