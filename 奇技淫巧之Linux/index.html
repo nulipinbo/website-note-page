@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="我的笔记">
 <meta property="og:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T03:17:53.191Z">
+<meta property="og:updated_time" content="2019-07-26T07:30:51.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇淫技巧之Linux篇">
 <meta name="twitter:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T11:13:00+08:00">
-                2017年05月20日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T11:13:00+08:00">
+                2018年05月20日
               </time>
             
 
@@ -380,7 +380,28 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword"</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>翻页查看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword" | more //空格键下翻</span><br><span class="line">cat log.log | grep -C n "keyword" | less //jk键上下翻</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat log.log | grep -C n "keyword" | more //空格键下翻</span><br><span class="line">cat log.log | grep -C n "keyword" | less //jk键上下翻</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把查询的内容存放到临时文件中  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat -n log.log &gt; tmp.log  //-n代表加上行号</span><br><span class="line">cat -b log.log &gt; tmp.log  //-b代表空白行不加行号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把查询的内容追加到临时文件中  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat -n log.log &gt;&gt; tmp.log  //-n代表加上行号</span><br><span class="line">cat -b log.log &gt;&gt; tmp.log  //-b代表空白行不加行号</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><ol>
+<li><p>实时监控日志 显示最后m行 -f自动刷新 默认10行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -f -nm log.log</span><br><span class="line">tail -mf log.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简写命令 tailf 等于 tail -f</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailf log.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示最后n个字符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -cn log.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从n行显示到文件末尾</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail +n log.log</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -584,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">2.2.</span> <span class="nav-text">tail</span></a></li></ol></li></ol></div>
             
 
           </div>
