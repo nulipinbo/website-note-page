@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="我的笔记">
 <meta property="og:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T07:30:51.072Z">
+<meta property="og:updated_time" content="2019-07-26T08:12:56.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇淫技巧之Linux篇">
 <meta name="twitter:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
@@ -403,6 +403,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail +n log.log</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><ol>
+<li>命令定义<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">grep [-a] [-c] [-n] [-An] [-Bn] [-Cn] [--color=auto] [-i] [keyword] [filename]</span><br><span class="line"></span><br><span class="line">-a ：将 binary 文件以 text 文件的方式搜寻数据</span><br><span class="line">-An: 除了显示符合行之外，并显示该行之后n行的内容</span><br><span class="line">-Bn: 除了显示符合行之外，并显示该行之前n行的内容</span><br><span class="line">-Cn: 除了显示符合行之外，并显示该行之前后n行的内容</span><br><span class="line">-c ：计算找到 '搜寻字符串' 的次数</span><br><span class="line">-n ：顺便输出行号</span><br><span class="line">--color=auto ：可以将找到的关键词部分加上颜色</span><br><span class="line">-i ：忽略大小写的不同，所以大小写视为相同</span><br><span class="line">keyword：搜索关键词</span><br><span class="line">filename: 指定被搜索的文件</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -605,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">2.2.</span> <span class="nav-text">tail</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">2.2.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep"><span class="nav-number">2.3.</span> <span class="nav-text">grep</span></a></li></ol></li></ol></div>
             
 
           </div>
