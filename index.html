@@ -524,7 +524,18 @@
             <blockquote>
 <p>Linux学习笔记</p>
 </blockquote>
-<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ol>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path…] [expression]</p>
+<p>path: 默认为当前目录</p>
+<ol>
+<li><p>查找文件的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name *.log  //*为通配符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将目前目录其下子目录中所有一般文件列出</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将当前目录及其子目录下所有最近 20 天内更新过的文件列出</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -ctime -20</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>创建多级目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p a/b/c/d</span><br></pre></td></tr></table></figure>
 </li>

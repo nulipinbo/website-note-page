@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
+<meta name="description" content="Linux学习笔记  目录操作findfind [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path…] [expression] path: 默认为当前目录  查找文件的目录 1find / -name *.log  //*为通配符  将目前目录其下子目录中所有一般文件列出 1find . -type">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="奇淫技巧之Linux篇">
 <meta property="og:url" content="https://note.pin.bo/奇技淫巧之Linux/index.html">
 <meta property="og:site_name" content="我的笔记">
-<meta property="og:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
+<meta property="og:description" content="Linux学习笔记  目录操作findfind [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path…] [expression] path: 默认为当前目录  查找文件的目录 1find / -name *.log  //*为通配符  将目前目录其下子目录中所有一般文件列出 1find . -type">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-31T08:27:42.197Z">
+<meta property="og:updated_time" content="2019-08-14T06:04:28.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇淫技巧之Linux篇">
-<meta name="twitter:description" content="Linux学习笔记  目录操作 创建多级目录 1mkdir -p a/b/c/d  拷贝文件夹a到目录b 1cp -rvf a/ /b/  移动文件a到/tmp目录，并重命名为b 1mv -vf a /tmp/b  删除tmp目录的所有文件 1rm -rvf /tmp/   日志查看cat 打印匹配行前n行内容 1cat log.log | grep -A n &quot;keyword&quot;  打印匹配行后">
+<meta name="twitter:description" content="Linux学习笔记  目录操作findfind [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path…] [expression] path: 默认为当前目录  查找文件的目录 1find / -name *.log  //*为通配符  将目前目录其下子目录中所有一般文件列出 1find . -type">
 
 
 
@@ -355,7 +355,18 @@
         <blockquote>
 <p>Linux学习笔记</p>
 </blockquote>
-<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ol>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path…] [expression]</p>
+<p>path: 默认为当前目录</p>
+<ol>
+<li><p>查找文件的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name *.log  //*为通配符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将目前目录其下子目录中所有一般文件列出</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将当前目录及其子目录下所有最近 20 天内更新过的文件列出</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -ctime -20</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>创建多级目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p a/b/c/d</span><br></pre></td></tr></table></figure>
 </li>
@@ -623,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">2.2.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep"><span class="nav-number">2.3.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#head"><span class="nav-number">2.4.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more"><span class="nav-number">2.5.</span> <span class="nav-text">more</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">1.1.</span> <span class="nav-text">find</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">2.</span> <span class="nav-text">日志查看</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">2.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">2.2.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep"><span class="nav-number">2.3.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#head"><span class="nav-number">2.4.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more"><span class="nav-number">2.5.</span> <span class="nav-text">more</span></a></li></ol></li></ol></div>
             
 
           </div>
