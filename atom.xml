@@ -119,9 +119,9 @@
       <category term="Coding" scheme="https://note.pin.bo/categories/Coding/"/>
     
     
-      <category term="AWS" scheme="https://note.pin.bo/tags/AWS/"/>
-    
       <category term="Linux" scheme="https://note.pin.bo/tags/Linux/"/>
+    
+      <category term="AWS" scheme="https://note.pin.bo/tags/AWS/"/>
     
   </entry>
   
@@ -130,9 +130,9 @@
     <link href="https://note.pin.bo/2017-02-20-chinese-domain-name-binding-pages/"/>
     <id>https://note.pin.bo/2017-02-20-chinese-domain-name-binding-pages/</id>
     <published>2017-02-20T03:08:00.000Z</published>
-    <updated>2017-02-20T04:32:44.386Z</updated>
+    <updated>2019-08-24T05:54:46.111Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>中文域名绑定到Pages服务时出现不支持的中文域名的解决办法</p></blockquote><h3 id="绑定到GitHub"><a href="#绑定到GitHub" class="headerlink" title="绑定到GitHub"></a>绑定到GitHub</h3><ol><li><p>中文域名的字符串专为<a href="http://baike.baidu.com/item/Punycode" target="_blank" rel="noopener">Punycode标准编码</a>的字符串，如<code>中国.我爱你</code>转为<code>xn--fiqs8s.xn--6qq986b3xl</code></p><p> 转换地址：<a href="http://www.webmasterhome.cn/tool/punycode.asp" target="_blank" rel="noopener">Punycode标准编码</a></p></li><li><p>GitHub中添加gh-pages分支</p></li></ol><a id="more"></a><ol start="3"><li><p>在gh-pages分支下新建CNAME文件,并写入域名<code>xn--fiqs8s.xn--6qq986b3xl</code></p></li><li><p>将域名的A记录解析到<code>192.30.252.153</code></p></li></ol><h3 id="绑定到Coding"><a href="#绑定到Coding" class="headerlink" title="绑定到Coding"></a>绑定到Coding</h3><ol><li><p>中文域名的字符串专为<a href="http://baike.baidu.com/item/Punycode" target="_blank" rel="noopener">Punycode标准编码</a>的字符串，如<code>中国.我爱你</code>转为<code>xn--fiqs8s.xn--6qq986b3xl</code></p><p> 转换地址：<a href="http://www.webmasterhome.cn/tool/punycode.asp" target="_blank" rel="noopener">Punycode标准编码</a></p></li><li><p>Coding中添加coding-pages分支</p></li><li><p>在coding-pages分支下新建CNAME文件,并写入域名<code>xn--fiqs8s.xn--6qq986b3xl</code></p></li><li><p>将域名的CNAME记录解析到<code>pages.coding.me</code> </p></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>中文域名绑定到Pages服务时出现不支持的中文域名的解决办法</p></blockquote><h3 id="绑定到GitHub"><a href="#绑定到GitHub" class="headerlink" title="绑定到GitHub"></a>绑定到GitHub</h3><ol><li><p>中文域名的字符串专为<a href="http://baike.baidu.com/item/Punycode" target="_blank" rel="noopener">Punycode标准编码</a>的字符串，如<code>中国.我爱你</code>转为<code>xn--fiqs8s.xn--6qq986b3xl</code></p><p> 转换地址：<a href="http://www.webmasterhome.cn/tool/punycode.asp" target="_blank" rel="noopener">Punycode标准编码</a></p></li><li><p>GitHub中添加gh-pages分支</p></li></ol><a id="more"></a><ol start="3"><li><p>在gh-pages分支下新建CNAME文件,并写入域名<code>xn--fiqs8s.xn--6qq986b3xl</code></p></li><li><p>将域名的A记录解析到<code>192.30.252.153</code></p></li></ol><h3 id="绑定到Coding"><a href="#绑定到Coding" class="headerlink" title="绑定到Coding"></a>绑定到Coding</h3><ol><li><p>中文域名的字符串专为<a href="http://baike.baidu.com/item/Punycode" target="_blank" rel="noopener">Punycode标准编码</a>的字符串，如<code>中国.我爱你</code>转为<code>xn--fiqs8s.xn--6qq986b3xl</code></p><p> 转换地址：<a href="http://www.webmasterhome.cn/tool/punycode.asp" target="_blank" rel="noopener">Punycode标准编码</a></p></li><li><p>Coding中添加coding-pages分支</p></li><li><p>在coding-pages分支下新建CNAME文件,并写入域名<code>xn--fiqs8s.xn--6qq986b3xl</code></p></li><li><p>将域名的CNAME记录解析到<code>pages.coding.me</code> </p></li><li><p>此方法同样适用于GitHub</p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -487,9 +487,9 @@ sudo apt-get -f install
       <category term="Tutorial" scheme="https://note.pin.bo/categories/Tutorial/"/>
     
     
-      <category term="wine-qq" scheme="https://note.pin.bo/tags/wine-qq/"/>
-    
       <category term="Ubuntu" scheme="https://note.pin.bo/tags/Ubuntu/"/>
+    
+      <category term="wine-qq" scheme="https://note.pin.bo/tags/wine-qq/"/>
     
   </entry>
   
